@@ -1,24 +1,19 @@
-# README
+## アプリケーション名
+無香料ファインダー
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリケーション概要
 
-Things you may want to cover:
+## URL
 
-* Ruby version
+## テスト用アカウント
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 利用方法
+## アプリケーションを作成した背景
+## 洗い出した要件
+## 実装した機能についての画像やGIF及びその説明
+## 実装予定の機能
+## データベース設計
+## 画面遷移図
+## 開発環境
+## ローカルでの動作方法
+## 工夫したポイント
