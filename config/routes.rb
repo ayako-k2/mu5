@@ -3,6 +3,6 @@ Rails.application.routes.draw do
    omniauth_callbacks: 'users/omniauth_callbacks',
    registrations: 'users/registrations'
  }
-  root 'users#index'  
-  resources :users, only: :new  
+  root 'places#index'  
+  resources :places, only: [:incex, :new]  
 end
