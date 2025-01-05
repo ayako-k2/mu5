@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_31_032943) do
+ActiveRecord::Schema[7.0].define(version: 2025_01_04_072721) do
+  create_table "places", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "category"
+    t.string "prefecture", null: false
+    t.string "address", null: false
+    t.string "url", limit: 1000, null: false
+    t.string "website"
+    t.float "latitude", null: false
+    t.float "longitude", null: false
+    t.string "place_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sns_credentials", charset: "utf8mb3", force: :cascade do |t|
     t.string "provider", null: false
     t.string "uid", null: false
