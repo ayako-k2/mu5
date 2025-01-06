@@ -1,0 +1,131 @@
+.index-main {
+  width: 100%;
+  padding-top: 32px;  
+}
+
+.place-lists {
+  width: 60%;
+
+  margin: 0 auto 8px;
+  border: 1px solid silver;
+  border-radius: 8px;
+  display: flex;
+  padding: 8px;
+
+}
+
+.place-lists-left {
+  width: 12%;
+  padding: 8px;
+  border-right: 1px solid silver;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.place-prefecture {
+ 
+}
+
+.place-category {
+}
+
+.place-lists-right {
+  width: 88%;
+  display:block;
+  padding-left: 8px;
+ 
+}
+
+.place-lists-right a{
+  text-decoration: none;
+  color: #fff;
+}
+
+.place-lists-right-upper {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0 8px;
+
+}
+
+.place-name {
+}
+
+.place-user-nickname {
+  font-size: 12px;
+  color: #333;
+}
+
+.place-lists-right-bottom {
+  display: flex;
+  justify-content: flex-end;
+  margin: 4px 0;
+}
+
+
+
+
+.place-website-btn {
+  background-color: #EF810F;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-right: 4px;
+}
+
+
+.place-url-btn {
+  background-color: #68Ac09;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+
+
+.place-register-btn {
+  width: 96px;          /* ボタンの幅 */
+  height: 96px;         /* ボタンの高さ */
+  background: #1d9bf0;  /* ボタンの背景色 */
+  text-align: center;   /* テキストを中央に配置 */
+  border-radius: 50%;   /* ボタンを正円にする */
+  bottom: 32px;         /* 画面下からの位置 */
+  right: 32px;          /* 画面右からの位置 */
+  position: fixed;      /* ボタンを固定位置に配置 */
+  display: flex;        /* 中央揃えにするための設定 */
+  align-items: center;  /* 垂直方向の中央揃え */
+  justify-content: center; /* 水平方向の中央揃え */
+  color: white;         /* テキスト色 */
+  font-size: 36px;      /* テキストサイズ */
+  font-weight: 500;     /* テキストの太さ */
+  text-decoration: none; /* テキストの装飾をなしにする */
+}
+
+.place-register-btn:hover {
+  background: #63b3ff;  /* マウスオーバー時の背景色 */
+}
+
+
+.place-register-btn-text {
+  margin: 0;            /* デフォルトのマージンをリセット */
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 120px;  
+  font-size: 16px;             /* ツールチップの幅 */
+  color: #63b3ff;                /* ツールチップの文字色 */
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+
+  /* ツールチップの位置 */
+  position: absolute;
+  z-index: 1;
+  bottom: 110%;              /* ボタンの上に表示 */
+  left: 50%;
+  margin-left: -60px;
+}
+
+.place-register-btn:hover .tooltip-text {
+  visibility: visible;
+}

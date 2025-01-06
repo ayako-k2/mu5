@@ -2,9 +2,13 @@
   box-sizing: border-box;
 }
 
+header {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 .top-page-header {
   width: 100vw;
-  padding: 2vh 15vw;
+  padding: 2vh 10vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,8 +20,8 @@
 }
 
 .logo-icon {
-  width: 20vw;
-  margin-right: 10vw;
+  width: 25vw;
+ 
 }
 
 

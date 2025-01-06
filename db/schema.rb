@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_31_032943) do
+ActiveRecord::Schema[7.0].define(version: 2025_01_04_072721) do
+  create_table "places", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "category"
+    t.string "prefecture", null: false
+    t.string "address", null: false
+    t.text "url", null: false
+    t.text "website"
+    t.float "latitude", null: false
+    t.float "longitude", null: false
+    t.string "place_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_places_on_user_id"
+  end
+
   create_table "sns_credentials", charset: "utf8mb3", force: :cascade do |t|
     t.string "provider", null: false
     t.string "uid", null: false
@@ -34,5 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_31_032943) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "places", "users"
   add_foreign_key "sns_credentials", "users"
 end

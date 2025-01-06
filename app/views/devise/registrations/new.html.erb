@@ -9,6 +9,8 @@
       </h1>
     </div>
 
+      <%= render 'shared/error_messages', model: f.object %>
+
     <div class= "by-email">
       <%#= f.label :avatar %>
       <%#= f.file_field :avatar, direct_upload: true %>

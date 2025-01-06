@@ -1,0 +1,41 @@
+<%= render "shared/header" %>
+<div class="place-new-main">
+  <input
+    id="pac-input"
+    class="controls"
+    type="text"
+    placeholder="登録したい場所を検索"
+  />
+  <div id="map"></div> 
+  
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>&callback=initAutocomplete&libraries=places&v=weekly"
+  async
+></script>
+
+<% if flash[:alert] %>
+<div class="alert alert-danger">
+  <%= flash[:alert] %>
+</div>
+<% end %>
+
+<%= form_with model: @place, id: "place-form", local: true do |form| %>
+  <label for="place_name">この場所を登録しますか？</label>
+  <%= form.text_field :name, id: "name", readonly: true %>
+  <%= form.text_field :prefecture, id: "prefecture", readonly: true %>
+
+  <%= form.hidden_field :category, id: "category" %>
+  <%= form.hidden_field :address, id: "address" %>
+  <%= form.hidden_field :url, id: "url" %>
+  <%= form.hidden_field :website, id: "website" %>
+  <%= form.hidden_field :latitude, id: "latitude" %>
+  <%= form.hidden_field :longitude, id: "longitude" %>
+  <%= form.hidden_field :place_id, id: "place_id" %>
+  <%#= form.hidden_field :user_id, value: current_user.id, id: "user_id" %>  
+
+  <%= form.submit "はい" %>
+<% end %>
+
+</div>
+
+
