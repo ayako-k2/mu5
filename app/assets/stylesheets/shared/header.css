@@ -8,7 +8,7 @@ header {
 
 .top-page-header {
   width: 100vw;
-  padding: 2vh 15vw;
+  padding: 2vh 10vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,7 +21,7 @@ header {
 
 .logo-icon {
   width: 25vw;
-  margin-right: 10vw;
+ 
 }
 
 

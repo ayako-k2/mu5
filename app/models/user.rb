@@ -7,7 +7,9 @@ class User < ApplicationRecord
   validates :nickname, :birthday , presence: true
   validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+\z/, message: 'must include both letters and numbers' }
 
+  has_many :places
   has_many :sns_credentials
+  
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
