@@ -65,7 +65,7 @@ function initializeMap() {
       place.address_components?.find((comp) =>
         comp.types.includes("administrative_area_level_1")
       )?.long_name || "";
-    document.getElementById("address").value = place.formatted_address || "";
+      document.getElementById("address").value = (place.formatted_address || "").replace(/^日本、\s*/, "");
     document.getElementById("url").value = place.url || "";
     document.getElementById("website").value = place.website || "";
     document.getElementById("latitude").value = place.geometry.location.lat();

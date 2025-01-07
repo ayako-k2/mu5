@@ -2,26 +2,45 @@
 
 <div class="place-register-main">
   
+
+    <div class="place-register-box">
     <input id="mapSearchBox" type="text" placeholder="登録したい場所を検索">
-  <div id="map"></div>
+    </div>
 
+     <div id="map"></div>
 
+    <div class="place-register-form">
+      <%= form_with model: @place, id: "place-form", local: true do |form| %>
+      <div class="place-register-form-left">
+        <div class="place-register-icon">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </div>
+      </div>
+      <div class="place-register-form-right">
+        <div class="place-confirm">
+        <label for="place_confirm">この場所を登録しますか？</label>
+        </div>
+        <div class="place-name">
+        <%= form.text_field :name, id: "name", class: "no-border", readonly: true %>
+        </div>
+        <div class="place-prefecture">
+        <%= form.text_field :prefecture, id: "prefecture", class: "no-border", readonly: true %>
+        </div>
+        <div class="place-category">
+        <%= form.text_field :category, id: "category", class: "no-border" %>
+        </div>
+        <%= form.hidden_field :address, id: "address" %>
+        <%= form.hidden_field :url, id: "url" %>
+        <%= form.hidden_field :website, id: "website" %>
+        <%= form.hidden_field :latitude, id: "latitude" %>
+        <%= form.hidden_field :longitude, id: "longitude" %>
+        <%= form.hidden_field :place_id, id: "place_id" %>
+        <div class="confirm-btn">
+        <%= form.submit "はい" %>
+        </div>
+      <% end %>
+     </div>
+    </div>
  
-  <%= form_with model: @place, id: "place-form", local: true do |form| %>
-    <label for="place_name">この場所を登録しますか？</label>
-    <%= form.text_field :name, id: "name", readonly: true %>
-    <%= form.text_field :prefecture, id: "prefecture", readonly: true %>
-
-    <%= form.text_field :category, id: "category" %>
-    <%= form.text_field :address, id: "address" %>
-    <%= form.hidden_field :url, id: "url" %>
-    <%= form.hidden_field :website, id: "website" %>
-    <%= form.hidden_field :latitude, id: "latitude" %>
-    <%= form.hidden_field :longitude, id: "longitude" %>
-    <%= form.text_field :place_id, id: "place_id" %>
-    <%#= form.hidden_field :user_id, value: current_user.id, id: "user_id" %>  
-
-    <%= form.submit "はい" %>
-  <% end %>
-
+ 
 </div>
