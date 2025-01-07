@@ -1,44 +1,44 @@
 <%= render "shared/header" %>
 <div class= "index-main">
   <% @places.each do |place| %>
-     <div class= "place-lists">
-       <div class="place-lists-left">
-        <div class="place-prefecture">
-        <%= place.prefecture %>
-        </div>
-       </div>
-        <%# <div class="place-category"> %>
-        <%#= place.category %>
-        <%# </div> %>
-       <div class="place-lists-right"> 
-        <div class="place-lists-right-upper">
-        <div class="place-name">
-          <%= place.name %>
-        </div>
-        <div class="place-user-nickname">
-          <p>by <%= place.user.nickname %></p>
-        </div>
-        </div>
+    <div class= "place-lists">
+      <div class="place-lists-left">
+      <div class="place-prefecture">
+      <%= place.prefecture %>
+      </div>
+      </div>
+      <%# <div class="place-category"> %>
+      <%#= place.category %>
+      <%# </div> %>
+      <div class="place-lists-right"> 
+      <div class="place-lists-right-upper">
+      <div class="place-name">
+        <%= place.name %>
+      </div>
+      <div class="place-user-nickname">
+        <p>by <%= place.user.nickname %></p>
+      </div>
+      </div>
 
-       <div class="place-lists-right-bottom"> 
-        <div cass="place-lists-right-bottom-left">
-          <div class="place-category">
-            <%= place.category %>
-          </div>
+      <div class="place-lists-right-bottom"> 
+      <div cass="place-lists-right-bottom-left">
+        <div class="place-category">
+          <%= place.category %>
         </div>
-        <div class="place-lists-right-bottom-right">
-          <div class="place-website"> 
-            <% if place.website.present?&& place.website != 'N/A' %>
-              <%= link_to 'WEBSITE', place.website, class: 'place-website-btn', target: '_blank' %>
-            <% end %> 
-          </div>
-          <div class="place-url">
-          <%= link_to 'Google Map', place.url, class: 'place-url-btn', target: '_blank' %>
-          </div>
+      </div>
+      <div class="place-lists-right-bottom-right">
+        <div class="place-website"> 
+          <% if place.website.present?&& place.website != 'N/A' %>
+            <%= link_to 'WEBSITE', place.website, class: 'place-website-btn', target: '_blank' %>
+          <% end %> 
         </div>
-       </div>
-       </div> 
-     </div> 
+        <div class="place-url">
+        <%= link_to 'Google Map', place.url, class: 'place-url-btn', target: '_blank' %>
+        </div>
+      </div>
+      </div>
+      </div> 
+    </div> 
   <% end %>
 
   <%= link_to (user_signed_in? ? new_place_path : user_session_path), class: 'place-register-btn' do %>
