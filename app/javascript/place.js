@@ -1,4 +1,4 @@
-import { typeToCategoryMap } from "./type_to_category_map";
+import { typeToCategoryMap } from "type_to_category_map";
 
 document.addEventListener("turbo:load", function () {
   initializeMap();
