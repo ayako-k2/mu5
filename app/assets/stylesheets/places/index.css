@@ -1,10 +1,10 @@
 .index-main {
   width: 100%;
-  padding-top: 32px;  
+  margin: 32px auto;
 }
 
 .place-lists {
-  width: 60%;
+  width: 80%;
 
   margin: 0 auto 8px;
   border: 1px solid silver;
@@ -59,10 +59,18 @@
 
 .place-lists-right-bottom {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   margin: 4px 0;
 }
 
+.place-lists-right-bottom-left {
+
+}
+
+.place-lists-right-bottom-right {
+  display: flex;
+    
+}
 
 
 
