@@ -11,17 +11,57 @@ function initializeMap() {
     return;
   }
 
+  // 登録済みの場所を取得
+  let places;
+  try {
+    places = JSON.parse(mapElement.getAttribute("data-places")) || [];
+  } catch (error) {
+    console.error("Invalid JSON format in data-places:", error);
+    places = []; // デフォルト値
+  }
+
+  // 地図の初期設定
   const map = new google.maps.Map(mapElement, {
     center: { lat: 35.6895, lng: 139.6917 }, // 東京
     zoom: 12,
   });
 
+  // 登録済みの場所にピンを立てる
+  places.forEach((place) => {
+    const marker = new google.maps.Marker({
+      map: map,
+      position: { lat: place.latitude, lng: place.longitude },
+      title: place.name,
+    });
+
+    // 詳細情報の内容を作成
+    const infoWindowContent = `
+      <div>
+        <h3>${place.name}</h3>
+        <p><strong>住所:</strong> ${place.address}</p>
+        <p><strong>カテゴリ:</strong> ${place.category || "なし"}</p>
+        <p><a href="${place.url}" target="_blank">詳細を見る</a></p>
+      </div>
+    `;
+
+    const infoWindow = new google.maps.InfoWindow({
+      content: infoWindowContent,
+    });
+
+    // クリックイベントでInfoWindowを表示
+    marker.addListener("click", () => {
+      infoWindow.open(map, marker);
+    });
+  });
+
+
+
+  // 以下、検索ボックスやその他のコードをそのまま使用
   const input = document.getElementById("mapSearchBox");
   const searchBox = new google.maps.places.SearchBox(input);
-  const formElement = document.getElementById("place-form"); // フォーム要素
-  let currentMarker = null; 
+  const formElement = document.getElementById("place-form");
+  let currentMarker = null;
 
-  // 初期状態でフォームを非表示
   formElement.style.display = "none";
 
   map.addListener("bounds_changed", () => {
@@ -32,40 +72,31 @@ function initializeMap() {
     const places = searchBox.getPlaces();
 
     if (places.length === 0) {
-      // 検索結果がない場合、フォームを非表示
       formElement.style.display = "none";
       alert("場所が見つかりませんでした。別の場所を検索してください。");
       return;
     }
 
-    // 検索結果に基づいてフォームを表示
     const place = places[0];
     formElement.style.display = "block";
 
     document.getElementById("category").value = getReadableCategory(place.types);
-      // カテゴリを取得する関数
-      function getReadableCategory(types) {
-        if (!types || types.length === 0) return "カテゴリ不明";
-
-        // 最初に一致するカテゴリを見つける
-        for (const type of types) {
-          if (typeToCategoryMap[type]) {
-            return typeToCategoryMap[type];
-          }
+    function getReadableCategory(types) {
+      if (!types || types.length === 0) return "カテゴリ不明";
+      for (const type of types) {
+        if (typeToCategoryMap[type]) {
+          return typeToCategoryMap[type];
         }
-
-        // 一致するものがない場合のデフォルト値
-        return "その他";
       }
+      return "その他";
+    }
 
-
-    // フォームにデータを入力
     document.getElementById("name").value = place.name || "";
     document.getElementById("prefecture").value =
       place.address_components?.find((comp) =>
         comp.types.includes("administrative_area_level_1")
       )?.long_name || "";
-      document.getElementById("address").value = (place.formatted_address || "").replace(/^日本、\s*/, "");
+    document.getElementById("address").value = (place.formatted_address || "").replace(/^日本、\s*/, "");
     document.getElementById("url").value = place.url || "";
     document.getElementById("website").value = place.website || "";
     document.getElementById("latitude").value = place.geometry.location.lat();
@@ -76,17 +107,13 @@ function initializeMap() {
       currentMarker.setMap(null);
     }
 
-    // 新しいマーカーを作成して地図に追加
     currentMarker = new google.maps.Marker({
       map: map,
       position: place.geometry.location,
       title: place.name,
     });
 
-
-    // 地図を移動
     map.setCenter(place.geometry.location);
     map.setZoom(15);
   });
 }
-

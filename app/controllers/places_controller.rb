@@ -9,6 +9,7 @@ class PlacesController < ApplicationController
 
   def new 
     @place = Place.new
+    @places = Place.all.order("created_at DESC")
     
   end
 
