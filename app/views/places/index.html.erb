@@ -7,13 +7,11 @@
       <%= place.prefecture %>
       </div>
       </div>
-      <%# <div class="place-category"> %>
-      <%#= place.category %>
-      <%# </div> %>
+
       <div class="place-lists-right"> 
       <div class="place-lists-right-upper">
       <div class="place-name">
-        <%= place.name %>
+        <%= link_to place.name, place_path(place) %>       
       </div>
       <div class="place-user-nickname">
         <p>by <%= place.user.nickname %></p>

@@ -44,7 +44,7 @@
 
 .place-lists-right a{
   text-decoration: none;
-  color: #fff;
+
 }
 
 .place-lists-right-upper {
@@ -55,7 +55,11 @@
 }
 
 .place-name {
-  font-size: 16px;
+  font-size: 16px; 
+}
+
+.place-name a {
+  color: #333;
 }
 
 .place-category {
@@ -83,7 +87,9 @@
     
 }
 
-
+.place-lists-right-bottom-right a {
+  color: #fff;
+}
 
 .place-website-btn {
   background-color: #EF810F;
