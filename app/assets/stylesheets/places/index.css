@@ -1,6 +1,10 @@
 .index-main {
   width: 100%;
   margin: 32px auto;
+  font-family: "Noto Sans JP", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .place-lists {
@@ -24,6 +28,7 @@
 
 }
 .place-prefecture {
+  font-weight: 600;
  
 }
 
@@ -33,7 +38,7 @@
 .place-lists-right {
   width: 88%;
   display:block;
-  padding-left: 8px;
+  padding-left: 16px;
  
 }
 
@@ -50,6 +55,12 @@
 }
 
 .place-name {
+  font-size: 16px;
+}
+
+.place-category {
+  font-size: 12px;
+  
 }
 
 .place-user-nickname {

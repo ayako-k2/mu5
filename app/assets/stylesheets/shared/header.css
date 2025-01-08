@@ -4,6 +4,10 @@
 
 header {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: "Noto Sans JP", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .top-page-header {
@@ -55,7 +59,7 @@ header {
 
 .login {
   text-decoration: none;
-  margin-right: 2vw;
+  margin-right: 1vw;
   padding: 8px 12px ;
   border: 1px solid #7a7a7a;
   color: #7a7a7a;
