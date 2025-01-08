@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+</header><!DOCTYPE html>
 <html>
   <head>
     <title>Mu5</title>
@@ -9,8 +9,9 @@
       <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
       <%= stylesheet_link_tag 'https://use.fontawesome.com/releases/v6.4.2/css/all.css', rel: 'stylesheet' %>
       <%#= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-
-
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
 
       <%= javascript_importmap_tags %> 
       <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places" async defer></script>
@@ -21,3 +22,4 @@
     <%= yield %>
   </body>
 </html>
+
