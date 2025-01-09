@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="gGsWANnS_95ct2UVCWiY" name="ページ1">
-        <mxGraphModel dx="553" dy="787" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="635" dy="787" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -46,13 +46,13 @@
                 <mxCell id="14" value="・longitude" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="8" vertex="1">
                     <mxGeometry x="-26" y="170" width="150" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="25" value="・place_id" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="8">
+                <mxCell id="25" value="・place_id" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="8" vertex="1">
                     <mxGeometry x="-28" y="190" width="150" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="26" value="・user_id" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="8">
+                <mxCell id="26" value="・user_id" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="8" vertex="1">
                     <mxGeometry x="-30" y="210" width="150" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="27" value="・prefecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="8">
+                <mxCell id="27" value="・prefecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="8" vertex="1">
                     <mxGeometry y="70" width="100" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="16" value="COMMENTS" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -83,6 +83,24 @@
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="330" y="480" as="sourcePoint"/>
                         <mxPoint x="434.5" y="439" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="28" value="SNS_CREDENTIALS" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="560" width="180" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="・provider" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="28">
+                    <mxGeometry y="30" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="・uid" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="28">
+                    <mxGeometry x="-13" y="49" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="・user_id" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="28">
+                    <mxGeometry y="70" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="" style="endArrow=ERmany;html=1;endFill=0;startArrow=ERone;startFill=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="230" y="480" as="sourcePoint"/>
+                        <mxPoint x="230" y="550" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
             </root>

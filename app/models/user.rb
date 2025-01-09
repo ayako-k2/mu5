@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_many :places
   has_many :sns_credentials
+  has_many :comments
   
 
   def self.from_omniauth(auth)
