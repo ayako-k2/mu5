@@ -3,4 +3,5 @@ class Place < ApplicationRecord
   validates :place_id, uniqueness: true
 
   belongs_to :user
+  has_many :comments
 end
