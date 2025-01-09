@@ -1,6 +1,7 @@
 class CommentChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "comment_channel"
+    @place = Place.find(params[:place_id]) # 追記
+    stream_for @place 
   end
 
   def unsubscribed

@@ -2,4 +2,5 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "place"
-import "type_to_category_map"import "channels"
+import "type_to_category_map"
+import "channels"
