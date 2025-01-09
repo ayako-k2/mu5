@@ -1,0 +1,7 @@
+ja:
+  time_ago:
+    seconds: "%{count}秒前"
+    minutes: "%{count}分前"
+    hours: "%{count}時間前"
+    days: "%{count}日前"
+    date_format: "%Y年%m月%d日"
