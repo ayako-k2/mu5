@@ -35,7 +35,26 @@
       </div>
       </div>
       </div> 
-    </div> 
+  </div> 
+
+<div id="comments">
+  <h4>＜コメント一覧＞</h4>
+    <% @place.comments.each do |comment| %>
+      <div class="comment">
+        <p class="user-info"><%= comment.user.nickname %>： </p>
+        <p><%= comment.text%></p>
+      </div>
+    <% end %>
+</div>
+
+  <div class="comment-form">
+  <% if user_signed_in? %>
+    <%= form_with model: [@place, @comment], id: "comment-form" do |f| %>
+      <%= f.text_area :text , class: "comment-text"%>
+      <%= f.submit "コメントをする", class: "comment-submit" %>
+    <% end %>
+  <% end %>
+</div>
 
     <div id="comments">
       <h4>＜コメント一覧＞</h4>
