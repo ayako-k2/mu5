@@ -1,4 +1,5 @@
 <%= render "shared/header" %>
+
 <div class= "index-main">
   <% @places.each do |place| %>
     <div class= "place-lists">
@@ -9,31 +10,37 @@
       </div>
 
       <div class="place-lists-right"> 
-      <div class="place-lists-right-upper">
-      <div class="place-name">
-        <%= link_to place.name, place_path(place) %>       
-      </div>
-      <div class="place-user-nickname">
-        <p>by <%= place.user.nickname %></p>
-      </div>
-      </div>
-
-      <div class="place-lists-right-bottom"> 
-      <div class="place-lists-right-bottom-left">
-        <div class="place-category">
-          <%= place.category %>
+        <div class="place-lists-right-upper">
+          <div class="place-lists-right-upper-left">
+            <div class="place-name">
+              <%= link_to place.name, place_path(place) %>       
+            </div>
+          </div>  
+          <div class="place-lists-right-upper-right">
+            <div class="place-user-nickname">
+              <p><%= place.user.nickname %></p>
+            </div>
+              <div class="place-created_at">
+              <p><%= place.created_at.strftime("%Y年%-m月%-d日 %-H:%M") %></p>
+            </div>
+            </div> 
+          </div>  
+        <div class="place-lists-right-bottom"> 
+        <div class="place-lists-right-bottom-left">
+          <div class="place-category">
+            <%= place.category %>
+          </div>
         </div>
-      </div>
-      <div class="place-lists-right-bottom-right">
-        <div class="place-website"> 
-          <% if place.website.present?&& place.website != 'N/A' %>
-            <%= link_to 'WEBSITE', place.website, class: 'place-website-btn', target: '_blank' %>
-          <% end %> 
+        <div class="place-lists-right-bottom-right">
+          <div class="place-website"> 
+            <% if place.website.present?&& place.website != 'N/A' %>
+              <%= link_to 'WEBSITE', place.website, class: 'place-website-btn', target: '_blank' %>
+            <% end %> 
+          </div>
+          <div class="place-url">
+          <%= link_to 'Google Map', place.url, class: 'place-url-btn', target: '_blank' %>
+          </div>
         </div>
-        <div class="place-url">
-        <%= link_to 'Google Map', place.url, class: 'place-url-btn', target: '_blank' %>
-        </div>
-      </div>
       </div>
       </div> 
     </div> 

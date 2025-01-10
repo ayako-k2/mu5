@@ -1,60 +1,88 @@
 <%= render "shared/header" %>
 <div class= "show-main">
-  <div class= "place-lists">
+ <div class= "show-place-lists">
+   <div class= "place-list">
       <div class="place-lists-left">
-      <div class="place-prefecture">
-      <%= @place.prefecture %>
-      </div>
-      </div>
-
-      <div class="place-lists-right"> 
-      <div class="place-lists-right-upper">
-      <div class="place-name">
-        <%= @place.name%>
-      </div>
-      <div class="place-user-nickname">
-        <p>by <%= @place.user.nickname %></p>
-      </div>
-      </div>
-
-      <div class="place-lists-right-bottom"> 
-      <div cass="place-lists-right-bottom-left">
-        <div class="place-category">
-          <%= @place.category %>
+        <div class="place-prefecture">
+          <%= @place.prefecture %>
         </div>
       </div>
-      <div class="place-lists-right-bottom-right">
-        <div class="place-website"> 
-          <% if @place.website.present?&& @place.website != 'N/A' %>
-            <%= link_to 'WEBSITE', @place.website, class: 'place-website-btn', target: '_blank' %>
-          <% end %> 
+
+      <div class="place-lists-right">
+        <div class="place-lists-right-upper">
+         <div class="place-lists-right-upper-left">
+          <div class="place-name">
+            <%= @place.name %>
+          </div>
+         </div>
+         <div class="place-lists-right-upper-right">
+          <div class="place-user-nickname">
+            <%= @place.user.nickname %>
+          </div>
+           <div class="place-created_at">
+              <p><%= @place.created_at.strftime("%Y年%-m月%-d日 %-H:%M") %></p>
+          </div>
+         </div>
         </div>
-        <div class="place-url">
-        <%= link_to 'Google Map', @place.url, class: 'place-url-btn', target: '_blank' %>
+
+        <div class="place-lists-right-bottom">
+          <div class="place-lists-right-bottom-left">
+            <div class="place-category">
+              <%= @place.category %>
+            </div>
+          </div>
+          <div class="place-lists-right-bottom-right">
+            <div class="place-website">
+              <% if @place.website.present? && @place.website != 'N/A' %>
+                <%= link_to 'WEBSITE', @place.website, class: 'place-website-btn', target: '_blank' %>
+              <% end %>
+            </div>
+            <div class="place-url">
+              <%= link_to 'Google Map', @place.url, class: 'place-url-btn', target: '_blank' %>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+    
+    <div class="comment-list">
+      <div id="comments">
+      <div class="comment-form">
+        <% if user_signed_in? %>
+          <p class="logged-in-user-nickname">
+          <%= current_user.nickname %>
+          </p>
+          <%= form_with model: [@place, @comment], id: "comment-form" do |f| %>
+            <%= f.text_area :text , class: "comment-text", placeholder: "コメントを入力" %>
+            <%#= f.submit "コメントをする", class: "comment-submit" %>
+             <button type="submit" class="comment-submit">
+              <i class="fa-regular fa-paper-plane"></i>
+            </button>
+          <% end %>
+   
+        <% end %>
       </div>
-      </div> 
-  </div> 
+       <div class="comment-details">
+          <% @place.comments.each do |comment| %>
+            <div class="comment">
+              <div class="comment-left">
+                <div class="comment-showtext">
+                <%= simple_format(comment.text)%>
+                </div>
+              </div>
+              <div class="comment-right">
+                <div class="user-info">
+                <%= comment.user.nickname %>
+                </div>
+                <div class="comment-time">
+                <%= comment.created_at.strftime("%Y年%-m月%-d日 %-H:%M") %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+      </div>   
+    </div>
 
-<div id="comments">
-  <h4>＜コメント一覧＞</h4>
-    <% @place.comments.each do |comment| %>
-      <div class="comment">
-        <p class="user-info"><%= comment.user.nickname %>： </p>
-        <p><%= comment.text%></p>
-      </div>
-    <% end %>
-</div>
 
-  <div class="comment-form">
-  <% if user_signed_in? %>
-    <%= form_with model: [@place, @comment], id: "comment-form" do |f| %>
-      <%= f.text_area :text , class: "comment-text"%>
-      <%= f.submit "コメントをする", class: "comment-submit" %>
-    <% end %>
-  <% end %>
-</div>
-
-
+  </div>
 </div>

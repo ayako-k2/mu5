@@ -5,19 +5,26 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
-      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-      <%= stylesheet_link_tag 'https://use.fontawesome.com/releases/v6.4.2/css/all.css', rel: 'stylesheet' %>
-      <%#= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
 
-     
+    <!-- フォントとアイコンの読み込み -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+Opti&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+  <%= stylesheet_link_tag 'https://use.fontawesome.com/releases/v6.4.2/css/all.css', rel: 'stylesheet' %>
 
-      <%= javascript_importmap_tags %> 
-      <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places" async defer></script>
-      <%# <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> %>
+  <!-- アプリケーションのスタイルシート -->
+  <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+  <%# <%= stylesheet_link_tag "custom", media: "all", "data-turbo-track": "reload" %> 
+
+  <!-- Bootstrap CSS -->
+  <%# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> %>
+
+  <!-- JavaScriptの読み込み -->
+  <%= javascript_importmap_tags %>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places" async defer></script>
+  <%# <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js" defer></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>   %>
   </head>
 
   <body>
