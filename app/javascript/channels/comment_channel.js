@@ -15,22 +15,33 @@ if(location.pathname.match(/\/places\/\d/)){
     },
 
     received(data) {
+      const createdAt = new Date(data.comment.created_at);
+
+      // 年、月、日、時間、分の取得
+      const year = createdAt.getFullYear();
+      const month = createdAt.getMonth() + 1; // 月は0から始まるため+1
+      const day = createdAt.getDate();
+      const hour = createdAt.getHours();
+      const minute = createdAt.getMinutes();
+
+      const jstDate = `${year}年${month}月${day}日 ${hour}:${minute}`;
+
       const html = `
          <div class="comment">
-          <div class="comment-left">
-            <div class="comment-showtext">
-              ${data.comment.text.replace(/\n/g, "<br>")}
-            </div>
-          </div>
-          <div class="comment-right">
-            <div class="user-info">
-              ${data.user.nickname}
-            </div>
-            <div class="comment-time">
-              ${jstDate}
-            </div>
-          </div>
-        </div>`
+      <div class="comment-left">
+        <div class="comment-showtext">
+          ${data.comment.text.replace(/\n/g, "<br>")}
+        </div>
+      </div>
+      <div class="comment-right">
+        <div class="user-info">
+          ${data.user.nickname}
+        </div>
+        <div class="comment-time">
+          ${jstDate}
+        </div>
+      </div>
+    </div>`
       const comments = document.getElementById("comments")
       comments.insertAdjacentHTML('beforeend', html)
       const commentForm = document.getElementById("comment-form")
