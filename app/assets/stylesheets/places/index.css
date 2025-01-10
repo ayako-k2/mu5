@@ -51,7 +51,10 @@
   display: flex;
   justify-content: space-between;
   margin: 4px 0 8px;
+}
 
+.place-lists-right-upper-right {
+  display: flex;
 }
 
 .place-name {
@@ -70,6 +73,12 @@
 .place-user-nickname {
   font-size: 12px;
   color: #333;
+}
+
+.place-created_at {
+  font-size: 12px;
+  color: #333;
+  margin-left: 4px;
 }
 
 .place-lists-right-bottom {

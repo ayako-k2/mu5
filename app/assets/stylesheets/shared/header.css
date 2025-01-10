@@ -40,6 +40,7 @@ header {
 .lists-right {
   display: flex;
   list-style: none;
+
   align-items: flex-end;
 }
 
@@ -50,8 +51,24 @@ header {
   font-weight: bold;
 }
 
+.login, .sign-up {
+  text-decoration: none;
+  margin-right: 1vw;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #7a7a7a;
+}
 
-.logout {
+.login {
+  color: #7a7a7a;
+}
+
+.sign-up {
+  color: #ffffff;
+  background-color: #7a7a7a;
+}
+
+/* .logout {
   text-decoration: none;
   color: #7a7a7a;
 
@@ -73,4 +90,44 @@ header {
   border: 1px solid #7a7a7a;
   padding: 8px 12px ;
   border-radius: 5px;
+} */
+
+/* @media (max-width: 768px) {
+  .top-page-header {
+    flex-direction: column;
+    padding: 4vh 5vw;
+  }
+
+  .top-page-logo a {
+    font-size: 36px;
+  }
+
+  .lists-right {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .user-nickname, .login, .logout, .sign-up {
+    margin-right: 0;
+    margin-bottom: 1vh;
+  }
+
+  .login, .sign-up {
+    width: 100%;
+    text-align: center;
+  }
 }
+
+@media (max-width: 480px) {
+  .top-page-header {
+    padding: 6vh 5vw;
+  }
+
+  .top-page-logo a {
+    font-size: 28px;
+  }
+
+  .lists-right {
+    width: 100%;
+  }
+} */
