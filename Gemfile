@@ -82,3 +82,5 @@ gem 'omniauth', '~>2.1.1'
 group :production do
   gem 'pg'
 end
+
+gem 'ransack'

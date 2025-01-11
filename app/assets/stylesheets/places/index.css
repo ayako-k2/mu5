@@ -7,9 +7,44 @@
   font-style: normal;
 }
 
+.place-search {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#detailed-search-form {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.place-search-box input{
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 4px 8px;
+  
+}
+
+.place-search-box {
+  width: 30%;
+  border: 1px solid silver; /* 枠線をカスタム */
+  border-radius: 4px; 
+  
+}
+
+.place-search-submit {
+  background-color: transparent;
+  border: none; 
+  cursor: pointer; 
+  padding: 0; 
+  font-size: 1.5rem;
+  color: #7a7a7a;
+  margin-left: 4px;
+}
+
 .place-lists {
   width: 80%;
-
   margin: 0 auto 8px;
   border: 1px solid silver;
   border-radius: 8px;

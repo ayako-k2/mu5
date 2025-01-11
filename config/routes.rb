@@ -5,6 +5,9 @@ Rails.application.routes.draw do
  }
   root to: 'places#index'  
   resources :places, only: [:index, :new, :create, :show] do
+    collection do
+      get 'search'
+    end
     resources :comments, only: :create
   end
 
