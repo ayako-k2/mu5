@@ -10,6 +10,7 @@
 .place-search {
   width: 80%;
   margin: 0 auto;
+  
 }
 
 #detailed-search-form {
@@ -23,12 +24,12 @@
   outline: none;
   font-size: 14px;
   padding: 4px 8px;
-  
+  background: transparent;
 }
 
 .place-search-box {
   width: 30%;
-  border: 1px solid silver; /* 枠線をカスタム */
+  border: 1px solid silver;
   border-radius: 4px; 
   
 }
@@ -119,7 +120,7 @@
 .place-lists-right-bottom {
   display: flex;
   justify-content: space-between;
-  margin: 4px 0;
+  margin: 2px 0;
 }
 
 .place-lists-right-bottom-left {
