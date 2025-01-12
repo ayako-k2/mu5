@@ -50,41 +50,22 @@
       </div>
     </div>
     
-    <div class="comment-list">
-      <div id="comments">
-      <div class="comment-form">
-        <% if user_signed_in? %>
-          <p class="logged-in-user-nickname">
-          <%= current_user.nickname %>
-          </p>
-          <%= form_with model: [@place, @comment], id: "comment-form" do |f| %>
-            <%= f.text_area :text , class: "comment-text", placeholder: "コメントを入力" %>
-              <button type="submit" class="comment-submit">
-              <i class="fa-regular fa-paper-plane"></i>
-            </button>
-          <% end %>
-   
+    <div id="comments">
+      <h4>＜コメント一覧＞</h4>
+        <% @place.comments.each do |comment| %>
+          <div class="comment">
+            <p class="user-info"><%= comment.user.nickname %>： </p>
+            <p><%= comment.text%></p>
+          </div>
         <% end %>
-      </div>
-       <div class="comment-details">
-          <% @place.comments.each do |comment| %>
-            <div class="comment">
-              <div class="comment-left">
-                <div class="comment-showtext">
-                <%= comment.text %>
-                </div>
-              </div>
-              <div class="comment-right">
-                <div class="user-info">
-                <%= comment.user.nickname %>
-                </div>
-                <div class="comment-time">
-                <%= comment.created_at.strftime("%Y年%-m月%-d日 %-H:%M") %>
-                </div> 
-              </div>
-            </div>
-          <% end %>
-      </div>   
+    </div>
+    <div class="comment-form">
+      <% if user_signed_in? %>
+        <%= form_with model: [@place, @comment], id: "comment-form" do |f| %>
+          <%= f.text_area :text , class: "comment-text"%>
+          <%= f.submit "コメントをする", class: "comment-submit" %>
+        <% end %>
+      <% end %>
     </div>
 
 
