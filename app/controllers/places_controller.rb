@@ -3,8 +3,8 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.all.order("created_at DESC")
-  
-    
+    @q = Place.ransack(params[:q])
+    @places = @q.result
   end
 
   def new 
@@ -27,6 +27,12 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     @comments = @place.comments.includes(:user)
     @comment = Comment.new
+  end
+
+  def search
+    @q = Place.ransack(params[:q])
+    @places = @q.result
+    render :index
   end
 
   

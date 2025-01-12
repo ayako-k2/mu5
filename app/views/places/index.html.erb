@@ -1,6 +1,20 @@
 <%= render "shared/header" %>
 
 <div class= "index-main">
+  <div class= "place-search">
+      <%= search_form_for @q, url: search_places_path, html: {id: "detailed-search-form"} do |f| %>
+      <div class= "place-search-box">
+      <%= f.text_field :name_or_category_or_prefecture_or_address_cont, placeholder: 'キーワードで絞り込み' %>
+     </div>
+     <div class= "place-search-btn">
+      <button type="submit" class="place-search-submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+  
+     </div>
+     <% end %>
+  </div>
+
   <% @places.each do |place| %>
     <div class= "place-lists">
       <div class="place-lists-left">
