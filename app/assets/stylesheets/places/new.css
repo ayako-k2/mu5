@@ -27,39 +27,107 @@
 
 
 .place-register-form{
-  display: flex;
-  width: 80%;
-  margin: 16px auto;
+  width: 100%;
+  border: 1px solid silver;
+  border-radius: 16px;
+  margin: 20px auto;
+  padding: 20px 40px;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
 }
 
+
+.place-confirm {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 20px auto;
+  display: flex;
+  align-items: center; /* アイテムを垂直方向に中央揃え */
+  gap: 10px;           /* アイコンとラベルの間にスペース */
+}
 
 .place-register-icon {
   font-size: 1.5rem;
   display: flex;
   align-items: center;
   gap: 8px;
-  color: green;
+  color: #1d9bf0;
+} 
+
+
+
+.place-register-lists {
+  width: 100%;
+  margin: 0 auto 8px;
+  border-top: 1px solid silver;
+  border-bottom: 1px solid silver;
+  border-left:1px solid silver;
+  border-radius: 8px 0 0 8px;
+  display: flex;
+  padding: 8px;
+}
+
+.place-register-lists-left {
+  width: 20%;
+  padding: 8px;
+  border-right: 1px solid silver;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
-.place-register-form-right{
-  display: block;
-  font-weight: 300;
-}
+.place-register-prefecture {
+  font-weight: 600;
+ }
 
-.place-confirm {
+ .place-register-lists-right {
+  width: 80%;
+  display:block;
+  padding-left: 16px;
+ }
+
+ .place-register-name {
+  font-size: 16px;
+ }
+
+ .place-register-category {
+  font-size: 12px;
   
-
 }
 
-.no-border {
+
+
+ .no-border {
   border: none; 
   outline: none;
-}
- 
-.place-name {
-  border: none;
+  background-color: transparent;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+.place-register-confirm-block {
+  width: 100%;
+  margin: 20px auto;
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+}
+
+.place-register-confirm-btn {
+  border: none; 
+  outline: none;
+  background-color: 1d9bf0;
+  padding: 10px 20px; 
+  color: #fff;
+  cursor: pointer; 
+  font-size: 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+ 
+}
 
 

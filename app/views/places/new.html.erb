@@ -3,30 +3,33 @@
 <div class="place-register-main">
   
 
-    <div class="place-register-box">
-    <input id="mapSearchBox" type="text" placeholder="登録したい場所を検索">
-    </div>
+  <div class="place-register-box">
+  <input id="mapSearchBox" type="text" placeholder="登録したい場所を検索">
+  </div>
 
-    <div id="map" data-places='<%= raw @places.to_json %>'></div>
+  <div id="map" data-places='<%= raw @places.to_json %>'></div>
 
-    <div class="place-register-form">
-      <%= form_with model: @place, id: "place-form", local: true do |form| %>
-      <div class="place-register-form-left">
+  
+    <%= form_with model: @place, id: "place-form", local: true do |form| %>
+  <div class="place-register-form">
+      <div class="place-confirm">
         <div class="place-register-icon">
-        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
         </div>
+      <label for="place_confirm">この場所を登録しますか？</label>
       </div>
-      <div class="place-register-form-right">
-        <div class="place-confirm">
-        <label for="place_confirm">この場所を登録しますか？</label>
+      <div class="place-register-lists">
+        <div class="place-register-lists-left">
+          <div class="place-register-prefecture">
+          <%= form.text_field :prefecture, id: "prefecture", class: "no-border", readonly: true %>
+          </div>
         </div>
-        <div class="place-name">
+        <div class="place-register-lists-right">
+        <div class="place-register-name">
         <%= form.text_field :name, id: "name", class: "no-border", readonly: true %>
         </div>
-        <div class="place-prefecture">
-        <%= form.text_field :prefecture, id: "prefecture", class: "no-border", readonly: true %>
-        </div>
-        <div class="place-category">
+      
+        <div class="place-register-category">
         <%= form.text_field :category, id: "category", class: "no-border" %>
         </div>
         <%= form.hidden_field :address, id: "address" %>
@@ -35,12 +38,24 @@
         <%= form.hidden_field :latitude, id: "latitude" %>
         <%= form.hidden_field :longitude, id: "longitude" %>
         <%= form.hidden_field :place_id, id: "place_id" %>
-        <div class="confirm-btn">
-        <%= form.submit "はい" %>
         </div>
-      <% end %>
-     </div>
+      </div>
+        
+    <div class="place-register-confirm-block">
+    <%= form.submit "はい!", class: "place-register-confirm-btn" %>`
     </div>
- 
- 
+  
+    <% end %>
+   
+  
+  </div>
+  
 </div>
+
+
+  <%= link_to (user_signed_in? ? new_place_path : user_session_path), class: 'place-register-btn' do %>
+    <span class='place-register-btn-text'>
+      ＋
+    </span>
+    <span class="tooltip-text">場所を登録</span>
+  <% end %>
