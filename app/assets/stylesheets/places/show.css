@@ -7,6 +7,20 @@
   font-style: normal;
 }
 
+.back-to-index {
+  width: 80%;
+  margin: 0 auto 8px;
+  /* background-color: transparent;
+  border: none;  */
+  cursor: pointer; 
+  padding: 0; 
+  font-size: 2rem;
+}
+
+.back-to-index a {
+color: #1F66BD;
+}
+
 .show-place-lists {
   width: 80%;
   margin: 0 auto 8px;
@@ -59,25 +73,6 @@
   color: 1F66BD;
 }
 
-.sns-icon {
-  font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-left: 20px;
-}
-
-.sns-icon.google {
-  color: #1F66BD;
-}
-
-.sns-icon.twitter {
-  color: #ffffff;
-}
-
-.sns-icon i {
-  font-size: 2rem;
-}
 
 .comment{
   border-bottom: 1px solid silver;
