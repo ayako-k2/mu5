@@ -35,7 +35,7 @@ color: #1F66BD;
 }
 
 /* Comment */
-
+/* 
 .comment-form{
   display: flex;
 }
@@ -48,7 +48,7 @@ color: #1F66BD;
 .comment-submit{
   display: block;
   margin-top: 20px;
-}
+}*/
 
 .comment{
   display: flex;
@@ -56,9 +56,9 @@ color: #1F66BD;
 
 .comment p{
    margin: 0;
-}
+} 
 
-.user-info{
+/* .user-info{
   color: gray;
   font-weight: bold;
-}
+} */

@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
-    @place = Place.find(params[:place_id]) 
-    if @comment.save 
-      ActionCable.server.broadcast "comment_channel", {comment: @comment, user: @comment.user}
+    @place = Place.find(params[:place_id])
+    if @comment.save
+      CommentChannel.broadcast_to @place, { comment: @comment, user: @comment.user } 
     end
   end
 

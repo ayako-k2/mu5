@@ -62,7 +62,7 @@
     <div class="comment-form">
       <% if user_signed_in? %>
         <%= form_with model: [@place, @comment], id: "comment-form" do |f| %>
-          <%= f.text_area :text , class: "comment-text"%>
+          <%= f.text_area :text , class: "comment-text" %>
           <%= f.submit "コメントをする", class: "comment-submit" %>
         <% end %>
       <% end %>
