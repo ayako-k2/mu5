@@ -24,9 +24,9 @@
           <div class="place-user-nickname">
             <%= @place.user.nickname %>
           </div>
-           <div class="place-created_at">
-              <p><%= @place.created_at.strftime("%Y年%-m月%-d日 %-H:%M") %></p>
-          </div>
+            <div class="time-show" data-created-at="<%= @place.created_at.iso8601 %>">
+                    <p class="formatted-time"></p>
+            </div>
          </div>
         </div>
 
@@ -54,12 +54,21 @@
       <div id="comments">
           <% @place.comments.each do |comment| %>
             <div class="comment">
-              <div class= "comment-text">
-               <p><%= comment.text%></p>
+              <div class="comment-left">
+                <div class= "comment-text">
+                <p><%= comment.text%></p>
+                </div>
               </div>
-              <div class="comment-user">
-               <p><%= comment.user.nickname %></p>
-              </div>
+              <div class="comment-right">
+                <div class="comment-user">
+                <p><%= comment.user.nickname %></p>
+                </div>
+                <div class="comment-timestamp">
+                  <div class="time-show" data-created-at="<%= comment.created_at.iso8601 %>">
+                    <p class="formatted-time"></p>
+                  </div>
+                </div>
+              </div>  
             </div>
           <% end %>
       </div>

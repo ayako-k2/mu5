@@ -1,4 +1,5 @@
 import consumer from "./consumer"
+import { formatTime } from "timediff";
 
 document.addEventListener("turbo:load", function () {
   console.log("JavaScript is loaded");
@@ -34,14 +35,23 @@ function initializeCommentForm() {
       },
 
       received(data) {
+        const timeString = formatTime(data.comment.created_at);
+       
         const html = `
-           <div class="comment">
-              <div class= "comment-text">
-                 <p>${data.comment.text}</p>
+            <div class="comment">
+              <div class="comment-left">
+                <div class= "comment-text">
+                <p>${data.comment.text}</p>
+                </div>
               </div>
-              <div class="comment-user">
-               <p>${data.user.nickname}</p>
-              </div>
+              <div class="comment-right">
+                <div class="comment-user">
+                <p>${data.user.nickname}</p>
+                </div>
+                <div class="comment-timestamp">
+                    <p>${timeString}</p>
+                  </div>
+                </div>
             </div>`;
         const comments = document.getElementById("comments");
         comments.insertAdjacentHTML('beforeend', html);
