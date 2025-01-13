@@ -12,6 +12,7 @@ header {
 
 .top-page-header {
   width: 100vw;
+  height: 12vh;
   padding: 2vh 10vw;
   display: flex;
   justify-content: space-between;

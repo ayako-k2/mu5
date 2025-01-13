@@ -1,6 +1,8 @@
 .index-main {
   width: 100%;
-  margin: 32px auto;
+  height: 80vh;
+  margin: 0 auto;
+  padding-top: 32px;
   font-family: "Noto Sans JP", serif;
   font-optical-sizing: auto;
   font-weight: 400;

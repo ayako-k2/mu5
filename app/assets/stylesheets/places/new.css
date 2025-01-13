@@ -1,6 +1,8 @@
 .place-register-main {
   width: 80%;
-  margin: 32px auto;
+  height: vh;
+  margin: 0 auto;
+  padding-top: 32px;
 }  
 
 .place-register-box {

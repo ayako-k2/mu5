@@ -1,10 +1,13 @@
 .show-main {
   width: 100%;
-  margin: 32px auto;
+  height: 80vh;
+  margin: 0 auto;
+  padding-top: 32px;
   font-family: "Noto Sans JP", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  overflow-y: auto;
 }
 
 .back-to-index {
@@ -27,6 +30,7 @@ color: #1F66BD;
   border: 1px solid silver;
   border-radius: 8px;
   padding: 8px;
+  margin-bottom: 32px;
 }
 
 .place-list {
@@ -34,31 +38,57 @@ color: #1F66BD;
   margin-bottom: 4px;
 }
 
-/* Comment */
-/* 
-.comment-form{
-  display: flex;
+.comment-list {
+  padding-left: 14%;
+  border-top: 1px solid silver;
 }
 
-.comment-text{
-  display: block;
-  margin-top: 20px;
+#comments {
+  
 }
-
-.comment-submit{
-  display: block;
-  margin-top: 20px;
-}*/
 
 .comment{
   display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid silver;
+  padding: 4px 0;
 }
 
-.comment p{
-   margin: 0;
-} 
+.comment-user {
+  font-size: 12px;
+  color: #333;
+}
 
-/* .user-info{
-  color: gray;
-  font-weight: bold;
-} */
+.comment-form {
+  margin-top: 16px; /* 必要に応じて調整 */
+  border-bottom:  1px solid silver;
+}
+
+#comment-form {
+  display: flex;
+  align-items: center;
+  width: 95%;
+  padding-bottom: 8px;
+}
+
+.comment-area {
+  flex: 1;
+  margin-right: 8px; 
+  border: none;
+  outline: none; 
+  resize: none;
+  overflow: hidden;
+  white-space: pre-wrap; 
+ 
+}
+
+
+.comment-submit {
+  background-color: transparent;
+  border: none; 
+  cursor: pointer; 
+  padding: 0; 
+  font-size: 2rem;
+  color: 1F66BD;
+}
+

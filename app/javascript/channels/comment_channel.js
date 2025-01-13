@@ -35,10 +35,14 @@ function initializeCommentForm() {
 
       received(data) {
         const html = `
-          <div class="comment">
-            <p class="user-info">${data.user.nickname}： </p>
-            <p>${data.comment.text}</p>
-          </div>`;
+           <div class="comment">
+              <div class= "comment-text">
+                 <p>${data.comment.text}</p>
+              </div>
+              <div class="comment-user">
+               <p>${data.user.nickname}</p>
+              </div>
+            </div>`;
         const comments = document.getElementById("comments");
         comments.insertAdjacentHTML('beforeend', html);
         const commentForm = document.getElementById("comment-form");

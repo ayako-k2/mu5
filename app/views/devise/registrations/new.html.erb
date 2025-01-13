@@ -1,4 +1,4 @@
-<%#= render "shared/second-header"%>
+<%= render "shared/second-header"%>
 
 <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
 
@@ -94,8 +94,8 @@
   </div>
 
   <div class="sns-btn-wrap google">
-    <div class="sns-icon google">
-      <i class="fa-brands fa-google"></i>
+    <div class="sns-image">
+      <%= image_tag 'google.png' %>
     </div>
    <%= form_with url: user_google_oauth2_omniauth_authorize_path, method: :post, local: true, data: { turbo: false } do %>
    <%= submit_tag "Googleで登録", class: "sns-btn google" %>
@@ -104,6 +104,7 @@
 </div>
 
  </div>
+ <%= render "shared/footer"%>
 
 <%#= render "shared/second-footer"%>
 
