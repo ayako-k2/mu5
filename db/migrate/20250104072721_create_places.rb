@@ -9,7 +9,7 @@ class CreatePlaces < ActiveRecord::Migration[7.0]
       t.text   :website
       t.float :latitude,    null: false
       t.float :longitude,   null: false
-      t.string :place_id,   null: false, unique: true
+      t.string :place_id,   null: false
       t.references :user,   null: false, foreign_key: true 
       t.timestamps
     end

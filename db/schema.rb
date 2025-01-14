@@ -41,6 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_01_13_064423) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["place_id"], name: "index_room_places_on_place_id"
+    t.index ["room_id", "place_id"], name: "index_room_places_on_room_id_and_place_id", unique: true
     t.index ["room_id"], name: "index_room_places_on_room_id"
   end
 

@@ -1,6 +1,5 @@
 class Place < ApplicationRecord
   validates :name, :address, :category, :url, :latitude, :longitude, :place_id, :prefecture, presence: true
-  validates :place_id, uniqueness: true
 
   belongs_to :user
   has_many :comments

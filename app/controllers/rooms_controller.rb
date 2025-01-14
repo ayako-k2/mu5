@@ -9,6 +9,15 @@ class RoomsController < ApplicationController
     @room = Room.new
   end
 
+  def create
+    @room = Room.new(room_params)
+    if @room.save
+      redirect_to rooms_path(@room)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   def show
     @room = Room.find(params[:id])
     @places = @room.places.order("created_at DESC")
@@ -18,6 +27,8 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:name, :description).merge(user_id: current_user.id, place_id: params[:place_id])
+    params.require(:room).permit(:name, :description).merge(user_id: current_user.id)
   end
 end
+
+
