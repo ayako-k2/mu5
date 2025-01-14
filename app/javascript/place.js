@@ -127,10 +127,14 @@ function initializeMap() {
     };
 
     // 重複チェック
+    // const isDuplicate = places.some((place) => {
+    //   return place.place_id === inputPlace.place_id && 
+    //             place.latitude === inputPlace.latitude &&
+    //             place.longitude === inputPlace.longitude;
+    // });
+
     const isDuplicate = places.some((place) => {
-      return place.place_id === inputPlace.place_id && 
-                place.latitude === inputPlace.latitude &&
-                place.longitude === inputPlace.longitude;
+      return place.place_id === inputPlace.place_id;
     });
 
     if (isDuplicate) {

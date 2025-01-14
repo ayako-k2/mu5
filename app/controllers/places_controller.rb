@@ -14,7 +14,9 @@ class PlacesController < ApplicationController
     
   end
 
-  def create
+
+
+ def create
     @room = Room.find(params[:room_id])
     @place = Place.find_or_initialize_by(place_params)
   
@@ -31,6 +33,7 @@ class PlacesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
 
   def show
     @place = @room.places.find(params[:id])
