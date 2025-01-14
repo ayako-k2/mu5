@@ -41,6 +41,7 @@ function initializeMap() {
         <p><strong>住所:</strong> ${place.address}</p>
         <p><strong>カテゴリ:</strong> ${place.category || "なし"}</p>
         <p><a href="${place.url}" target="_blank">Google Mapを開く</a></p>
+        
       </div>
     `;
 

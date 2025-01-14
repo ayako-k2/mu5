@@ -22,6 +22,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @places = @room.places.order("created_at DESC")
     @q = @room.places.ransack(params[:q])
+    
   end
 
   private

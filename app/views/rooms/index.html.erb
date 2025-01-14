@@ -1,20 +1,34 @@
 <%= render "shared/header" %>
+<div class="room-main">
+  <div class="room-title">
+    どの界隈？
+  </div>
+ 
+ <div class="room-list">
+  <div class="room-item">
+    <%= link_to (user_signed_in? ? new_room_path: user_session_path), class: 'room-register-btn' do %>
+      <span class='room-register-btn-text'>
+        新しいルームを作成
+      </span>
+    <% end %>
+  </div>
 
-<div class="room-title">
-  どの界隈？
+  <% @rooms.each_with_index do |room, index| %>
+    <% if index % 3 == 0 %>
+      <div class="room-row">
+    <% end %>
+
+    <div class="room-item">
+      <%#= image_tag room.image, class: 'room-image' %> <%= link_to room_places_path(room) do %>
+        <%= room.name %>
+      <% end %>
+      <%= room.description %>
+    </div>
+
+    <% if (index + 1) % 3 == 0 || index == @rooms.size - 1 %>
+      </div> <% end %>
+  <% end %>
 </div>
 
-<% @rooms.each do |room| %>
-  <%= link_to room_places_path(room) do %>
-    <%= room.name %>
-  <% end %>
-  <%= room.description %>
-<% end %>
 
-
- <%= link_to (user_signed_in? ? new_room_path: user_session_path), class: 'room-register-btn' do %>
-    <span class='room-register-btn-text'>
-      新しいルームを作成
-    </span>
-
-  <% end %>
+</div>

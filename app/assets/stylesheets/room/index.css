@@ -1,0 +1,50 @@
+.room-main {
+ width: 80%;
+  height: 80vh;
+  margin: 0 auto;
+  padding-top: 32px;
+  font-family: "Noto Sans JP", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  overflow-y: auto;
+}
+
+.room-title {
+  width: 100%;
+  font-family: "Kaisei Opti", serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 36px;
+  color: #000;
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+.room-list {
+  
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(25vw, 1fr));
+  gap: 20px;
+}
+
+.room-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center; /* 画像を中央揃え */
+}
+
+.room-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .room-list {
+    grid-template-columns: repeat(auto-fit, minmax(100vw, 1fr));
+  }
+}
