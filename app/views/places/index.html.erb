@@ -2,7 +2,7 @@
 
 <div class= "index-main">
   <div class= "place-search">
-      <%= search_form_for @q, url: search_places_path, html: {id: "detailed-search-form"} do |f| %>
+      <%= search_form_for @q, url: search_room_places_path(@room), html: {id: "detailed-search-form"} do |f| %>
       <div class= "place-search-box">
       <%= f.text_field :name_or_category_or_prefecture_or_address_cont, placeholder: 'キーワードで絞り込み' %>
      </div>
@@ -27,7 +27,7 @@
         <div class="place-lists-right-upper">
           <div class="place-lists-right-upper-left">
             <div class="place-name">
-              <%= link_to place.name, place_path(place) %>       
+              <%= link_to place.name, room_place_path(@room, place) %>        
             </div>
           </div>  
           <div class="place-lists-right-upper-right">
@@ -60,7 +60,7 @@
     </div> 
   <% end %>
 
-  <%= link_to (user_signed_in? ? new_place_path : user_session_path), class: 'place-register-btn' do %>
+   <%= link_to (user_signed_in? ? new_room_place_path(@room) : user_session_path), class: 'place-register-btn' do %>
     <span class='place-register-btn-text'>
       ＋
     </span>

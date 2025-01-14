@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_01_09_021351) do
+ActiveRecord::Schema[7.0].define(version: 2025_01_13_064423) do
   create_table "comments", charset: "utf8mb3", force: :cascade do |t|
     t.text "text", null: false
     t.integer "user_id", null: false
@@ -33,6 +33,24 @@ ActiveRecord::Schema[7.0].define(version: 2025_01_09_021351) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_places_on_user_id"
+  end
+
+  create_table "room_places", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.bigint "place_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_room_places_on_place_id"
+    t.index ["room_id"], name: "index_room_places_on_room_id"
+  end
+
+  create_table "rooms", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "sns_credentials", charset: "utf8mb3", force: :cascade do |t|
@@ -59,5 +77,8 @@ ActiveRecord::Schema[7.0].define(version: 2025_01_09_021351) do
   end
 
   add_foreign_key "places", "users"
+  add_foreign_key "room_places", "places"
+  add_foreign_key "room_places", "rooms"
+  add_foreign_key "rooms", "users"
   add_foreign_key "sns_credentials", "users"
 end

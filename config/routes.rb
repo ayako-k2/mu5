@@ -3,12 +3,15 @@ Rails.application.routes.draw do
    omniauth_callbacks: 'users/omniauth_callbacks',
    registrations: 'users/registrations'
  }
-  root to: 'places#index'  
-  resources :places, only: [:index, :new, :create, :show] do
-    collection do
-      get 'search'
+
+  root to: 'rooms#index'  
+  resources :rooms, only: [:index, :new, :create, :show] do
+    resources :places, only: [:index, :new, :create, :show] do
+      collection do
+        get 'search'
+      end
+      resources :comments, only: :create
     end
-    resources :comments, only: :create
   end
 
 end

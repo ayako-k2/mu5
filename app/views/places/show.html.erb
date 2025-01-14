@@ -78,7 +78,7 @@
              <%= current_user.nickname %>
           </p>
 
-          <%= form_with model: [@place, @comment], id: "comment-form" do |f| %>
+          <%= form_with model: [@room, @place, @comment], id: "comment-form" do |f| %>
             <%= f.text_area :text , class: "comment-area", placeholder: "コメントを入力" %>
             <button type="submit" class="comment-submit">
               <i class="fa-regular fa-paper-plane"></i>

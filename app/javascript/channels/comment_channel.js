@@ -1,4 +1,4 @@
-import consumer from "./consumer"
+import consumer from "./consumer";
 import { formatTime } from "timediff";
 
 document.addEventListener("turbo:load", function () {
@@ -12,8 +12,12 @@ let commentChannel;
 function initializeCommentForm() {
   console.log("Initializing comment form");
 
-  if (location.pathname.match(/\/places\/\d/)) {
-    const placeId = location.pathname.match(/\d+/)[0];
+  // 新しいルーティングパスに対応する正規表現
+  const pathMatch = location.pathname.match(/\/rooms\/(\d+)\/places\/(\d+)/);
+
+  if (pathMatch) {
+    const roomId = pathMatch[1];
+    const placeId = pathMatch[2];
 
     // 既存のサブスクリプションを解除
     if (commentChannel) {
@@ -23,6 +27,7 @@ function initializeCommentForm() {
     // 新しいサブスクリプションを作成
     commentChannel = consumer.subscriptions.create({
       channel: "CommentChannel",
+      room_id: roomId,  // 新しいルーティングに合わせてroom_idを追加
       place_id: placeId
     }, {
 
@@ -36,22 +41,22 @@ function initializeCommentForm() {
 
       received(data) {
         const timeString = formatTime(data.comment.created_at);
-       
+
         const html = `
             <div class="comment">
               <div class="comment-left">
-                <div class= "comment-text">
-                <p>${data.comment.text}</p>
+                <div class="comment-text">
+                  <p>${data.comment.text}</p>
                 </div>
               </div>
               <div class="comment-right">
                 <div class="comment-user">
-                <p>${data.user.nickname}</p>
+                  <p>${data.user.nickname}</p>
                 </div>
                 <div class="comment-timestamp">
-                    <p>${timeString}</p>
-                  </div>
+                  <p>${timeString}</p>
                 </div>
+              </div>
             </div>`;
         const comments = document.getElementById("comments");
         comments.insertAdjacentHTML('beforeend', html);
