@@ -2,6 +2,10 @@
 
 <%= form_with model: @room, url: rooms_path, local: true do |form| %>
   <div>
+    <%= form.file_field :image, id:"item-image-upload" %>
+  
+
+
     <%= form.label :name %>
     <%= form.text_field :name, id: "name", required: true %>
   </div>
