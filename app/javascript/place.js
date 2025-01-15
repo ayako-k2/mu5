@@ -41,7 +41,6 @@ function initializeMap() {
         <p><strong>住所:</strong> ${place.address}</p>
         <p><strong>カテゴリ:</strong> ${place.category || "なし"}</p>
         <p><a href="${place.url}" target="_blank">Google Mapを開く</a></p>
-        
       </div>
     `;
 
@@ -128,19 +127,18 @@ function initializeMap() {
     };
 
     // 重複チェック
-    // const isDuplicate = places.some((place) => {
-    //   return place.place_id === inputPlace.place_id && 
-    //             place.latitude === inputPlace.latitude &&
-    //             place.longitude === inputPlace.longitude;
-    // });
-
     const isDuplicate = places.some((place) => {
       return place.place_id === inputPlace.place_id;
     });
 
     if (isDuplicate) {
       // 重複する場合
-      alert("この場所は既に登録されています");
+      alert("この場所は既に登録されています。別の場所を検索してください。");
+
+      // 検索ボックスのリセット
+      input.value = ''; // 検索ボックスの内容をリセットする
+      // searchBox.set('places', []); // 検索ボックスの結果をリセットする
+
       return;
     }
 

@@ -1,12 +1,10 @@
 class PlacesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  before_action :set_room
+  before_action :set_room, only: [:index, :new, :create, :show, :destroy, :search]
 
   def index
     @places = @room.places.order("created_at DESC")
-    @q = @room.places.ransack(params[:q])
-    @room = Room.find(params[:room_id])
-  
+    @q = @room.places.ransack(params[:q]) 
   end
 
   def new 
@@ -18,7 +16,6 @@ class PlacesController < ApplicationController
 
 
  def create
-    @room = Room.find(params[:room_id])
     @place = Place.find_or_initialize_by(place_params)
   
     if @place.new_record? || !@room.places.exists?(place_id: @place.id)
@@ -44,9 +41,10 @@ class PlacesController < ApplicationController
 
   
   def destroy
+    @place = @room.places.find_by(id: params[:id])
     @place.destroy
-   redirect_to room_place_path(@room), notice: 'Room was successfully deleted.'
- end
+   redirect_to room_places_path(@room), notice: 'Room was successfully deleted.'
+  end
 
   def search
     @q = @room.places.ransack(params[:q])

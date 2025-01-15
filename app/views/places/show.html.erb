@@ -22,11 +22,18 @@
          </div>
          <div class="place-lists-right-upper-right">
           <div class="place-user-nickname">
-            <%= @place.user.nickname %>
-          </div>
-            <div class="time-show" data-created-at="<%= @place.created_at.iso8601 %>">
-                    <p class="formatted-time"></p>
-            </div>
+                <p><%= @place.user.nickname %></p>
+              </div>
+              <div class="time-show" data-created-at="<%= @place.created_at.iso8601 %>">
+                <p class="formatted-time"></p>
+              </div>
+              <div class="place-delete"> 
+                <% if user_signed_in? && current_user.id == @place.user_id %>
+                  <%= link_to room_place_path(@room, @place), data: { turbo_method: :delete, turbo_confirm: '場所を削除しますか？' }, class: "place-destroy" do %>
+                    <i class="fa-solid fa-trash"></i>
+                  <% end %>
+                <% end %>
+              </div>
          </div>
         </div>
 
@@ -68,6 +75,15 @@
                     <p class="formatted-time"></p>
                   </div>
                 </div>
+                <div class="comment-delete">
+                   <% if user_signed_in? && current_user.id == comment.user_id %>
+                       <%= link_to room_place_comment_path(@room, @place, comment), data: { turbo_method: :delete, turbo_confirm: 'コメントを削除しますか？' }, class: "comment-destroy" do %>
+                       <i class="fa-solid fa-trash"></i>
+                    <% end %>
+                    <% end %>
+                    
+                </div>
+             
               </div>  
             </div>
           <% end %>

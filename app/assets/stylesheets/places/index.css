@@ -138,10 +138,10 @@
   margin-left: 4px;
 }
 
-.place-delete {
-  color: #333;
-  margin-left: 10px;
 
+.place-delete a {
+  color: #7a7a7a;
+  margin-left: 10px;
 }
 
 .place-lists-right-bottom {

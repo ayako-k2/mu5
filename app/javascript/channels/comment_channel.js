@@ -41,6 +41,7 @@ function initializeCommentForm() {
 
       received(data) {
         const timeString = formatTime(data.comment.created_at);
+        
 
         const html = `
             <div class="comment">
