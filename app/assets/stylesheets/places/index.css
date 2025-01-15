@@ -10,9 +10,27 @@
   overflow-y: auto;
 }
 
-.place-search {
+.index-main-upper {
   width: 80%;
-  margin: 0 auto;
+  display: flex;
+  margin: 0 auto 8px;
+}
+
+.index-main-title {
+  width: 50%;
+  font-family: "Kaisei Opti", serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 32px;
+  color: #000;
+  display: flex; 
+  justify-content: flex-end;
+  letter-spacing: 10px;
+}
+
+
+.place-search {
+  width: 50%;
   
 }
 

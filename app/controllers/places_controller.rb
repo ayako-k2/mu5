@@ -5,6 +5,7 @@ class PlacesController < ApplicationController
   def index
     @places = @room.places.order("created_at DESC")
     @q = @room.places.ransack(params[:q])
+    @room = Room.find(params[:room_id])
   
   end
 

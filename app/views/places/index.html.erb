@@ -1,6 +1,10 @@
 <%= render "shared/header" %>
 
 <div class= "index-main">
+   <div class="index-main-upper">
+    <div class="index-main-title">
+      <%= @room.name %>
+    </div>
   <div class= "place-search">
       <%= search_form_for @q, url: search_room_places_path(@room), html: {id: "detailed-search-form"} do |f| %>
       <div class= "place-search-box">
@@ -14,6 +18,7 @@
      </div>
      <% end %>
   </div>
+</div>  
 
   <% @places.each do |place| %>
     <div class= "place-lists">
