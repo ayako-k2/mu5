@@ -36,14 +36,21 @@
             </div>
           </div>  
           <div class="place-lists-right-upper-right">
-            <div class="place-user-nickname">
-              <p><%= place.user.nickname %></p>
-            </div>
+              <div class="place-user-nickname">
+                <p><%= place.user.nickname %></p>
+              </div>
               <div class="time-show" data-created-at="<%= place.created_at.iso8601 %>">
-                    <p class="formatted-time"></p>
-                  </div>
-            </div> 
-          </div>  
+                <p class="formatted-time"></p>
+              </div>
+              <div class="place-delete"> 
+                <% if user_signed_in? && current_user.id == place.user_id %>
+                  <%= link_to room_places_path(@room), data: { turbo_method: :delete, turbo_confirm: '場所を削除しますか？' }, class: "place-destroy" do %>
+                    <i class="fa-solid fa-trash"></i>
+                  <% end %>
+                <% end %>
+              </div>
+           </div> 
+        </div>  
         <div class="place-lists-right-bottom"> 
         <div class="place-lists-right-bottom-left">
           <div class="place-category">

@@ -42,6 +42,12 @@ class PlacesController < ApplicationController
     @comment = Comment.new
   end
 
+  
+  def destroy
+    @place.destroy
+   redirect_to room_place_path(@room), notice: 'Room was successfully deleted.'
+ end
+
   def search
     @q = @room.places.ransack(params[:q])
     @places = @q.result

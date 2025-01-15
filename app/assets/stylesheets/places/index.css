@@ -138,6 +138,12 @@
   margin-left: 4px;
 }
 
+.place-delete {
+  color: #333;
+  margin-left: 10px;
+
+}
+
 .place-lists-right-bottom {
   display: flex;
   justify-content: space-between;
