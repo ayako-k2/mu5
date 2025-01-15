@@ -28,7 +28,7 @@
 
            <div class="room-delete"> 
             <% if user_signed_in? && current_user.id == room.user_id %>
-              <%= link_to room_path(room), data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: "room-destroy" do %>
+              <%= link_to room_path(room), data: { turbo_method: :delete, turbo_confirm: 'ルームを削除すると登録された場所が全て削除されます。本当に削除しますか？' }, class: "room-destroy" do %>
                 <i class="fa-solid fa-trash"></i>
               <% end %>
             <% end %>

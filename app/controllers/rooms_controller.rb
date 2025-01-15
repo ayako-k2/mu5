@@ -40,7 +40,7 @@ class RoomsController < ApplicationController
 
   def destroy
      @room.destroy
-    redirect_to rooms_path, notice: 'Room was successfully deleted.'
+    redirect_to root_path, notice: 'Room was successfully deleted.'
   end
 
 
