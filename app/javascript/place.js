@@ -41,6 +41,7 @@ function initializeMap() {
         <p><strong>住所:</strong> ${place.address}</p>
         <p><strong>カテゴリ:</strong> ${place.category || "なし"}</p>
         <p><a href="${place.url}" target="_blank">Google Mapを開く</a></p>
+        
       </div>
     `;
 
@@ -54,9 +55,6 @@ function initializeMap() {
     });
   });
 
-
-
-  // 以下、検索ボックスやその他のコードをそのまま使用
   const input = document.getElementById("mapSearchBox");
   const searchBox = new google.maps.places.SearchBox(input);
   const formElement = document.getElementById("place-form");
@@ -117,32 +115,36 @@ function initializeMap() {
     map.setZoom(15);
   });
 
-   // フォーム送信イベントリスナーを追加
-   const placeForm = document.getElementById("place-form");
-   placeForm.addEventListener("submit", (event) => {
-       event.preventDefault(); // フォームのデフォルト動作を阻止
- 
-       // 入力された場所の情報
-       const inputPlace = {
-           place_id: document.getElementById("place_id").value,
-           latitude: document.getElementById("latitude").value,
-           longitude: document.getElementById("longitude").value,
-       };
- 
-       // 重複チェック
-       const isDuplicate = places.some((place) => {
-           return place.place_id === inputPlace.place_id && 
-                    place.latitude === inputPlace.latitude &&
-                    place.longitude === inputPlace.longitude;
-       });
- 
-       if (isDuplicate) {
-           // 重複する場合
-           alert("この場所は既に登録されています");
-           return;
-       }
- 
-       // フォームを送信
-       placeForm.submit();
-   });
+  // フォーム送信イベントリスナーを追加
+  const placeForm = document.getElementById("place-form");
+  placeForm.addEventListener("submit", (event) => {
+    event.preventDefault(); // フォームのデフォルト動作を阻止
+
+    // 入力された場所の情報
+    const inputPlace = {
+      place_id: document.getElementById("place_id").value,
+      latitude: document.getElementById("latitude").value,
+      longitude: document.getElementById("longitude").value,
+    };
+
+    // 重複チェック
+    // const isDuplicate = places.some((place) => {
+    //   return place.place_id === inputPlace.place_id && 
+    //             place.latitude === inputPlace.latitude &&
+    //             place.longitude === inputPlace.longitude;
+    // });
+
+    const isDuplicate = places.some((place) => {
+      return place.place_id === inputPlace.place_id;
+    });
+
+    if (isDuplicate) {
+      // 重複する場合
+      alert("この場所は既に登録されています");
+      return;
+    }
+
+    // フォームを送信
+    placeForm.submit();
+  });
 }

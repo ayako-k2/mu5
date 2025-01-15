@@ -5,7 +5,7 @@ Rails.application.routes.draw do
  }
 
   root to: 'rooms#index'  
-  resources :rooms, only: [:index, :new, :create, :show] do
+  resources :rooms, only: [:index, :new, :create, :show, :destroy] do
     resources :places, only: [:index, :new, :create, :show] do
       collection do
         get 'search'

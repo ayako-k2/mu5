@@ -1,20 +1,47 @@
 <%= render "shared/header" %>
+<div class="room-main-container">
+  <div class="room-main">
+    <div class="room-title">
+      どの界隈？
+    </div>
 
-<div class="room-title">
-  どの界隈？
+    <div class="room-list">
+      <div class="room-item">
+        <%= link_to (user_signed_in? ? new_room_path : user_session_path), class: 'room-register-btn' do %>
+          <span class='room-name room-register-btn-text'>
+            新しいルームを作成
+          </span>
+        <% end %>
+      </div>
+
+      <% @rooms.each_with_index do |room, index| %>
+        <div class="room-item">
+          <%= link_to room_places_path(room) do %>
+            <% if room.image.attached? %>
+              <%= image_tag room.image, class: "room-img" %>
+            <% end %>
+          
+           <div class="room-item-bottom"> 
+            <div class="room-name"><%= room.name %>
+            </div>
+          <% end %>
+
+           <div class="room-delete"> 
+            <% if user_signed_in? && current_user.id == room.user_id %>
+              <%= link_to room_path(room), data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: "room-destroy" do %>
+                <i class="fa-solid fa-trash"></i>
+              <% end %>
+            <% end %>
+          </div>
+
+          </div> 
+
+          
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
-<% @rooms.each do |room| %>
-  <%= link_to room_places_path(room) do %>
-    <%= room.name %>
-  <% end %>
-  <%= room.description %>
-<% end %>
 
-
- <%= link_to (user_signed_in? ? new_room_path: user_session_path), class: 'room-register-btn' do %>
-    <span class='room-register-btn-text'>
-      新しいルームを作成
-    </span>
-
-  <% end %>
+<%= render "shared/footer" %>

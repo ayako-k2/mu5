@@ -3,10 +3,9 @@ class PlacesController < ApplicationController
   before_action :set_room
 
   def index
-    @room = Room.find(params[:room_id])
-    @places = Place.all.order("created_at DESC")
-    @q = Place.ransack(params[:q])
-    @places = @q.result
+    @places = @room.places.order("created_at DESC")
+    @q = @room.places.ransack(params[:q])
+  
   end
 
   def new 
@@ -15,26 +14,35 @@ class PlacesController < ApplicationController
     
   end
 
-  def create
-    @place = Place.new(place_params)
-    if @place.save
-      redirect_to room_places_path(@room)
+
+
+ def create
+    @room = Room.find(params[:room_id])
+    @place = Place.find_or_initialize_by(place_params)
+  
+    if @place.new_record? || !@room.places.exists?(place_id: @place.id)
+      if @place.save
+        RoomPlace.create(room: @room, place: @place)
+        redirect_to room_places_path(@room)
+      else
+        flash.now[:alert] = 'エラーが発生しました。'
+        render :new, status: :unprocessable_entity
+      end
     else
       flash.now[:alert] = 'この場所は既に登録されています。'
       render :new, status: :unprocessable_entity
     end
   end
 
+
   def show
-    @place = Place.find(params[:id])
-    @room = Room.find(params[:room_id])
-    @room = @place.rooms.find(params[:room_id])
+    @place = @room.places.find(params[:id])
     @comments = @place.comments.includes(:user)
     @comment = Comment.new
   end
 
   def search
-    @q = Place.ransack(params[:q])
+    @q = @room.places.ransack(params[:q])
     @places = @q.result
     render :index
   end
