@@ -3,6 +3,8 @@
   display: flex;
   justify-content: center;
   height: 80vh;
+  overflow-y: auto;
+
 }
 
 .room-main {
