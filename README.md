@@ -35,6 +35,7 @@ Googleのマイマップ機能が好きでXなどで情報を集めながら地�
 ## データベース設計
 ![alt text](image-1.png)
 ## 画面遷移図
+![alt text](image-2.png)
 ## 開発環境
 - フロントエンド: HTML, CSS, JavaScript
 - バックエンド: Ruby on Rails7
