@@ -2,7 +2,6 @@ import consumer from "./consumer";
 import { formatTime } from "timediff";
 
 document.addEventListener("turbo:load", function () {
-  console.log("JavaScript is loaded");
   initializeCommentForm();
 });
 
@@ -10,7 +9,6 @@ document.addEventListener("turbo:load", function () {
 let commentChannel;
 
 function initializeCommentForm() {
-  console.log("Initializing comment form");
 
   // 新しいルーティングパスに対応する正規表現
   const pathMatch = location.pathname.match(/\/rooms\/(\d+)\/places\/(\d+)/);
