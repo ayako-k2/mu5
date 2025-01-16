@@ -1,4 +1,4 @@
-import consumer from "./consumer";
+import consumer from "channels/consumer";
 import { formatTime } from "timediff";
 
 document.addEventListener("turbo:load", function () {
