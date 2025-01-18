@@ -1,5 +1,6 @@
 export function formatTime(createdAt) {
   const now = new Date();
+  const createdAtDate = new Date(createdAt); 
   const timeDiff = now - new Date(createdAt);
 
   const seconds = Math.floor(timeDiff / 1000);
