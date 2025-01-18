@@ -1,9 +1,7 @@
 .index-main {
   width: 100%;
-  height: 80vh;
-  margin: 0 auto;
+  margin: 0 auto 32px;
   padding-top: 32px;
-  font-family: "Noto Sans JP", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -30,7 +28,7 @@
 
 
 .place-search {
-  width: 50%;
+  width: 80%;
   
 }
 
@@ -180,37 +178,36 @@
 
 
 .place-register-btn {
-  width: 96px;          /* ボタンの幅 */
-  height: 96px;         /* ボタンの高さ */
-  background: #1d9bf0;  /* ボタンの背景色 */
-  text-align: center;   /* テキストを中央に配置 */
-  border-radius: 50%;   /* ボタンを正円にする */
-  bottom: 32px;         /* 画面下からの位置 */
-  right: 32px;          /* 画面右からの位置 */
-  position: fixed;      /* ボタンを固定位置に配置 */
-  display: flex;        /* 中央揃えにするための設定 */
-  align-items: center;  /* 垂直方向の中央揃え */
-  justify-content: center; /* 水平方向の中央揃え */
-  color: white;         /* テキスト色 */
-  font-size: 36px;      /* テキストサイズ */
-  font-weight: 500;     /* テキストの太さ */
-  text-decoration: none; /* テキストの装飾をなしにする */
+  width: 96px;
+  height: 96px;
+  background: #1d9bf0;
+  text-align: center;
+  border-radius: 50%; 
+  bottom: 10vh; 
+  right: 4vw; 
+  position: fixed; 
+  display: flex; 
+  align-items: center;
+  justify-content: center; 
+  color: white; 
+  font-size: 36px;
+  font-weight: 500; 
+  text-decoration: none;
 }
 
 .place-register-btn:hover {
-  background: #63b3ff;  /* マウスオーバー時の背景色 */
+  background: #63b3ff;  
 }
 
-
 .place-register-btn-text {
-  margin: 0;            /* デフォルトのマージンをリセット */
+  margin: 0; 
 }
 
 .tooltip-text {
   visibility: hidden;
   width: 120px;  
-  font-size: 16px;             /* ツールチップの幅 */
-  color: #63b3ff;                /* ツールチップの文字色 */
+  font-size: 16px;
+  color: #63b3ff; 
   text-align: center;
   border-radius: 6px;
   padding: 5px;
@@ -218,11 +215,71 @@
   /* ツールチップの位置 */
   position: absolute;
   z-index: 1;
-  bottom: 110%;              /* ボタンの上に表示 */
+  bottom: 110%;  
   left: 50%;
   margin-left: -60px;
 }
 
 .place-register-btn:hover .tooltip-text {
   visibility: visible;
+}
+
+@media (max-width: 600px) {
+.index-main-upper {
+  width: 100%;
+  display: block;
+ }
+
+ .index-main-title{
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+ }
+
+ .place-search {
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  justify-content: flex-end;
+ }
+
+ .place-search-box {
+  width: 80%;
+ }
+
+ .place-lists-right-bottom{
+  display: block;
+ }
+
+ .place-lists-right-bottom-right {
+  display: flex; 
+  justify-content: flex-end;
+ }
+
+ .place-search-submit {
+  font-size: 1.5rem;
+ }
+
+ .place-website a,
+ .place-url a {
+  font-size: 12px;
+ }
+
+ .place-website {
+  margin-bottom: 1.5vh;
+ }
+
+ .place-prefecture {
+  font-weight: 600;
+  letter-spacing: -1px;
+ 
+}
+
+
+
+
+
+
+
 }

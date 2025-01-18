@@ -1,6 +1,5 @@
 .registration-main {
   width: 100%;
-  min-width: 800px;
   height: 100%;
   background-color: #f5f5f5;
   display: flex;
@@ -11,10 +10,8 @@
 /* form-wrapは商品購入画面でも使用しています */
 .form-wrap {
   width: 50%;
-  height: 100%;
   background-color: white;
-  padding-bottom: 70px;
-  margin: 0 auto;
+  margin: 0 auto 80px;
 }
 
 .form-header {
@@ -103,7 +100,7 @@
 }
 
 .input-birth-wrap select {
-  width: 75px;
+  width: 68px;
   margin-top: 5px;
   height: 45px;
   padding-left: 10px;
@@ -144,7 +141,7 @@
   margin: 30px auto;
 }
 
-.register-brown-btn {
+.register-blue-btn {
   width: 100%;
   background: #1d9bf0;
   border: 1px solid #1d9bf0;
@@ -160,11 +157,11 @@
 }
 
 .sns-btn-wrap {
-   width: 100%; 
-   display: flex; 
-   align-items: center; 
-   margin-bottom: 4px;
-   border-radius: 4px; 
+  width: 100%; 
+  display: flex; 
+  align-items: center; 
+  margin-bottom: 4px;
+  border-radius: 4px; 
 } 
 
 .sns-btn-wrap.google {
@@ -217,3 +214,43 @@
 .sns-btn.twitter {
   color: #fff;
 } 
+
+.indispensable {
+  background: #ea352d;
+  margin-left: 8px;
+  padding: 3px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.login-flash-message {
+  text-align: center;
+  color: red;
+}
+
+
+@media (max-width: 600px) {
+.form-wrap {
+   width: 80%;
+  }
+
+.form-group {
+  width: 70%;
+}
+
+.sns-btn {
+   font-size: 0.9rem;
+ }
+ 
+.sns-icon i {
+  font-size: 1rem;
+}
+
+.sns-image img {
+  width: 1rem; 
+  height: auto; /* アスペクト比を維持 */
+}
+
+}

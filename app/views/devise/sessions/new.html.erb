@@ -1,6 +1,6 @@
 <%= render "shared/second-header"%>
 
-<div class="user-main">
+<div class="main">
   <%= form_with model: @user, url:user_session_path, class: 'registration-main', local: true do |f| %>
   <div class='form-wrap'>
     <div class='form-header'>
@@ -27,8 +27,8 @@
       <%= f.password_field :password, class:"input-default", id:"password", placeholder:"" %>
     </div>
 
-      <div class='login-btn'>
-      <%= f.submit "ログイン" ,class:"login-blue-btn" %>
+      <div class='register-btn'>
+      <%= f.submit "ログイン" ,class:"register-blue-btn" %>
     </div>
 
 
@@ -60,4 +60,3 @@
 </div>
 
 <%= render "shared/footer"%>
-<%#= render "devise/shared/links" %>
