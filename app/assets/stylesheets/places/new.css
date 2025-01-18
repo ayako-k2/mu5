@@ -6,6 +6,23 @@
 
  }  
 
+ .place-register-main-upper {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+ }
+
+ .back-to-index2 {
+  cursor: pointer; 
+  padding: 0; 
+  font-size: 2rem;
+  margin-right: 16px;
+}
+
+.back-to-index2 a {
+  color: #1F66BD;
+  }
+
 .place-register-box {
   width: 80%;
 }

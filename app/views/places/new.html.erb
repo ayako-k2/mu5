@@ -1,10 +1,15 @@
 <%= render "shared/header" %>
 
 <div class="place-register-main">
-  
-
-  <div class="place-register-box">
-  <input id="mapSearchBox" type="text" placeholder="登録したい場所を検索">
+  <div class="place-register-main-upper">
+    <div class="back-to-index2">
+      <%= link_to room_places_path(@room) do %>
+        <i class="fa-solid fa-arrow-left"></i>
+      <% end %>
+    </div>
+    <div class="place-register-box">
+    <input id="mapSearchBox" type="text" placeholder="登録したい場所を検索">
+    </div>
   </div>
 
 <div id="map" data-places="<%= @room.places.to_json %>"></div>
