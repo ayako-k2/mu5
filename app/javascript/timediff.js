@@ -19,6 +19,6 @@ export function formatTime(createdAt) {
       return `${hours}時間前`;
     }
   } else {
-    return `${createdAt.getFullYear()}年${createdAt.getMonth() + 1}月${createdAt.getDate()}日 ${createdAt.getHours()}時${createdAt.getMinutes()}分`;
+    return `${createdAtDate.getFullYear()}年${createdAtDate.getMonth() + 1}月${createdAtDate.getDate()}日 ${createdAtDate.getHours()}時${createdAtDate.getMinutes()}分`;
   }
 }
