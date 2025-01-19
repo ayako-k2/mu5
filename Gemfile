@@ -83,6 +83,7 @@ gem 'omniauth', '~>2.1.1'
 
 group :production do
   gem 'pg'
+  gem 'unicorn', '6.1.0'
 end
 
 gem 'ransack'
