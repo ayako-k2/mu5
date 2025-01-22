@@ -30,16 +30,16 @@ https://mu5.onrender.com/
 - 場所詳細ページ（コメント機能）
 
 ## 実装した機能についての画像やGIF及びその説明
-![1](https://github.com/user-attachments/assets/be961dc9-e3c0-424b-9c1d-93353c9a50e7)
+![1](https://github.com/user-attachments/assets/fcaa6bf2-2ccc-4909-a591-37d448fca6f0)
 - ログインはEメール、SNS認証が可能です
   
-![2](https://github.com/user-attachments/assets/e565d04c-689c-46c3-9f7e-380f4bf960fb)
+![2](https://github.com/user-attachments/assets/db049455-77d6-4ca9-9fff-b75c92d91778)
 - ルームに入ると登録された場所一覧が表示されます
 - 場所情報からWEBSITE、Google mapに遷移することができます
 - 場所の名前をクリックすると非同期表示のコメントができます
 - 検索で都道府県、名前、カテゴリーから絞り込みができます
   
-![3](https://github.com/user-attachments/assets/c92631fd-1f86-4cd8-9593-cb844bb33943)
+![3](https://github.com/user-attachments/assets/e3877b26-e0c3-4fda-9b29-f4f04b0d1d66)
 - 右下の場所を登録「＋」から場所を追加します
 - ユーザーは登録したい場所を検索し、登録しますか？→「はい」をクリックするだけで、簡単に登録ができます
 - 場所がもつplace_idにより、同じ場所の追加はできません
