@@ -15,7 +15,9 @@ https://mu5.onrender.com/<br>
 ※表示されるまでに1分程かかります<br>
 ※現在レスポンシブ対応中
 ## テスト用アカウント
-- メール：test@test.com
+- Basic認証ID：admin 
+- Basic認証パスワード：6565
+- メールアドレス：test@test.com
 - パスワード：test2025
 ## 利用方法
 1. トップページから新規登録/ログインする。（SNSでのログインも可能）
