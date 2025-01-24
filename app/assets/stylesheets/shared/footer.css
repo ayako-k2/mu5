@@ -1,5 +1,6 @@
 footer {
-  height: 8%;
+  height: 8vh;
+  padding: 16px 0;
   background-color: #333;
   display: flex;
   align-items: center;
@@ -8,4 +9,17 @@ footer {
 
 footer p {
   color: silver;
+}
+
+
+@media (max-width: 600px) {
+footer {
+  padding: 8px 0;
+
+}
+
+footer p {
+  font-size: 12px;
+}
+
 }
