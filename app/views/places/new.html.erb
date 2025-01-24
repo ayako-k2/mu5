@@ -57,11 +57,11 @@
 </div>
 
 
- <%= link_to (user_signed_in? ? new_room_place_path(@room) : user_session_path), class: 'place-register-btn' do %>
-    <span class='place-register-btn-text'>
+ <%# = link_to (user_signed_in? ? new_room_place_path(@room) : user_session_path), class: 'place-register-btn' do %>
+    <%# <span class='place-register-btn-text'>
       ＋
     </span>
     <span class="tooltip-text">場所を登録</span>
-  <% end %>
+  <% end %> 
 
  <%= render "shared/footer"%>
