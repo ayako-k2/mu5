@@ -40,6 +40,15 @@ header {
   font-size: 1rem;
 }
 
+.user-avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 4px;
+}
+
+
 .user-nickname {
   text-decoration: none;
   margin-right: 3vw;

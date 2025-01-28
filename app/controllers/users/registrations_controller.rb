@@ -19,6 +19,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  def sign_up_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :nickname, :birthday, :avatar)
+  end
+
+  # Account update時に許可するパラメータを追加
+  def account_update_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :nickname, :birthday, :avatar)
+  end
+
   # GET /resource/edit
   # def edit
   #   super

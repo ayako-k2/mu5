@@ -5,6 +5,7 @@ class PlacesController < ApplicationController
   def index
     @places = @room.places.order("created_at DESC")
     @q = @room.places.ransack(params[:q]) 
+    @user = current_user
   end
 
   def new 
