@@ -125,6 +125,11 @@
   
 }
 
+.user-avatar.mid {
+  width: 20px;
+  height: 20px;
+}
+
 .place-user-nickname {
   font-size: 12px;
   color: #333;
