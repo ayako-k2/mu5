@@ -6,10 +6,12 @@ class User < ApplicationRecord
 
   validates :nickname, :birthday , presence: true
   validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+\z/, message: 'must include both letters and numbers' }
+  validate :avatar_type
 
   has_many :places
   has_many :sns_credentials
   has_many :comments
+  has_one_attached :avatar
   
 
   def self.from_omniauth(auth)
@@ -24,4 +26,11 @@ class User < ApplicationRecord
     end
     { user: user, sns: sns }
   end  
+
+  def avatar_type
+    if avatar.attached? && !avatar.content_type.in?(%w[image/jpeg image/png])
+      errors.add(:avatar, 'はJPEGまたはPNG形式でアップロードしてください。')
+    end
+  end
+  
 end

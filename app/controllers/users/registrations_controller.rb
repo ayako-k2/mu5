@@ -9,6 +9,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def new
+    @user = User.new
+  end
+
+  def create
+    super
+    if @user.avatar.attached?
+      puts "Avatarが保存されました"
+    else
+      puts "Avatarが保存されていません"
+    end
+  end
+
   # POST /resource
   def create
     if params[:sns_auth] == 'true'
@@ -17,6 +30,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       params[:user][:password_confirmation] = pass
     end
     super
+  end
+
+
+  private
+
+  def sign_up_params
+    params.require(:user).permit(:email, :nickname, :birthday, :password, :avatar)
   end
 
   # GET /resource/edit
