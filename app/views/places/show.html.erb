@@ -74,7 +74,13 @@
                 </div>
               </div>
               <div class="comment-right">
-                
+                 <div>
+                    <% if comment.user.present? && comment.user.avatar.attached? %>
+                      <%= image_tag comment.user.avatar.variant(resize_to_fill: [100, 100]), class: "user-avatar mid" %>
+                    <% else %>
+                      <%= image_tag "default-avatar.png",class: "user-avatar mid" %>
+                    <% end %>
+                  </div>
                 <div class="comment-user">
                 <p><%= comment.user.nickname %></p>
                 </div>
@@ -98,9 +104,18 @@
       </div>
       <div class="comment-form">
         <% if user_signed_in? %>
+         <div class="comment-form-name">
+          <div>
+            <% if current_user.avatar.attached? %>
+              <%= image_tag current_user.avatar.variant(resize_to_fill: [100, 100]), class: "user-avatar" %>
+            <% else %>
+              <%= image_tag "default-avatar.png",class: "user-avatar" %>
+            <% end %>
+        </div>
           <p class="logged-in-user-nickname">
              <%= current_user.nickname %>
           </p>
+        </div>  
 
           <%= form_with model: [@room, @place, @comment], id: "comment-form" do |f| %>
             <%= f.text_area :text , class: "comment-area", placeholder: "コメントを入力" %>
