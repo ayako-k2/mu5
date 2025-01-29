@@ -21,6 +21,13 @@
           </div>
          </div>
          <div class="place-lists-right-upper-right">
+          <div>
+            <% if @place.user.present? && @place.user.avatar.attached? %>
+              <%= image_tag @place.user.avatar.variant(resize_to_fill: [100, 100]), class: "user-avatar mid" %>
+            <% else %>
+              <%= image_tag "default-avatar.png",class: "user-avatar mid" %>
+            <% end %>
+          </div>
           <div class="place-user-nickname">
                 <p><%= @place.user.nickname %></p>
               </div>
@@ -67,6 +74,7 @@
                 </div>
               </div>
               <div class="comment-right">
+                
                 <div class="comment-user">
                 <p><%= comment.user.nickname %></p>
                 </div>
