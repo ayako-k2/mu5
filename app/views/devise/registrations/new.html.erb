@@ -13,9 +13,11 @@
 
       <%= render 'shared/error_messages', model: f.object %>
       <div class= "by-email">
+         
         <div class="form-group">
         <div class='form-text-wrap'>
-          <label class="form-text">アイコン画像</label>
+          <label class="form-text">プロフィール画像</label>
+          <div id="previews"></div>
         </div>
         <%= f.file_field :avatar, accept: 'image/jpeg,image/png', id: "avatar" %>
       </div>
