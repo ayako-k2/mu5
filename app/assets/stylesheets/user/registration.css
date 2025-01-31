@@ -67,6 +67,10 @@
   margin-top: 3px;
 }
 
+#previews {
+  margin: 12px 0;
+}
+
 .form-info-header {
   font-weight: bold;
 }
