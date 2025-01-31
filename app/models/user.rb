@@ -27,6 +27,11 @@ class User < ApplicationRecord
     { user: user, sns: sns }
   end  
 
+  def password_required?
+    return false if persisted? && (changes.keys - ["encrypted_password"]).present?
+    super
+  end
+
   def avatar_type
     if avatar.attached? && !avatar.content_type.in?(%w[image/jpeg image/png])
       errors.add(:avatar, 'はJPEGまたはPNG形式でアップロードしてください。')
