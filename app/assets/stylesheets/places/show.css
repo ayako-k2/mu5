@@ -82,7 +82,7 @@ color: #1F66BD;
 
 .comment-form {
   margin-top: 16px; /* 必要に応じて調整 */
-  border-bottom:  1px solid silver;
+  /* border-bottom:  1px solid silver; */
 }
 
 #comment-form {
