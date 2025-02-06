@@ -39,13 +39,11 @@ function initializeCommentForm() {
 
       received(data) {
         const timeString = formatTime(data.comment.created_at);
-        
-
         const html = `
             <div class="comment">
               <div class="comment-left">
                 <div class="comment-text">
-                  <p>${data.comment.text}</p>
+                  <span>${data.comment.text}</span>
                 </div>
               </div>
               <div class="comment-right">
@@ -66,15 +64,12 @@ function initializeCommentForm() {
   }
 }
 
-
-// document.addEventListener('DOMContentLoaded', (event) => {
-//   const textArea = document.querySelector('.comment-text');
-
-//   textArea.addEventListener('input', autoResize);
-//   autoResize.call(textArea); // 初期の高さ設定
-
-//   function autoResize() {
-//     this.style.height = 'auto'; // 高さをリセット
-//     this.style.height = (this.scrollHeight) + 'px'; // scrollHeight を基に高さを再計算
-//   }
-// });
+document.addEventListener("turbo:load", function () {
+  const textarea = document.getElementById("comment-textarea");
+  if (textarea) {
+      textarea.addEventListener("input", function () {
+          this.style.height = "auto";
+          this.style.height = (this.scrollHeight) + "px";
+      });
+  }
+});
