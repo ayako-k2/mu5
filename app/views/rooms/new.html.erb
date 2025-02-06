@@ -5,29 +5,27 @@
     <div class="room-new-title">
       新しいルームを追加</div>
 
-      <p>このページについては現在開発中です。</p>
-
       <div class="room-new-form">
-        <%#= form_with model: @room, url: rooms_path, local: true do |form| %>
+        <%= form_with model: @room, url: rooms_path, local: true do |form| %>
 
 
           <div>
-            <%#= form.file_field :image, id:"item-image-upload" %>
+            <%= form.file_field :image, id:"item-image-upload" %>
           </div>
           <div> 
-            <%#= form.label :name %>
-            <%#= form.text_field :name, id: "name", required: true %>
+            <%= form.label :name %>
+            <%= form.text_field :name, id: "name", required: true %>
           </div>
 
           <div>
-            <%#= form.label :description %>
-            <%#= form.text_field :description, id: "description", required: true %>
+            <%= form.label :description %>
+            <%= form.text_field :description, id: "description", required: true %>
           </div>
 
           <div>
-            <%#= form.submit "Create Room" %>
+            <%= form.submit "Create Room" %>
           </div>
-        <%# end %>
+        <% end %>
     </div>
  </div>
 </div>
