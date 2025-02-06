@@ -1,21 +1,35 @@
 <%= render "shared/header" %>
-
-<%= form_with model: @room, url: rooms_path, local: true do |form| %>
-  <div>
-    <%= form.file_field :image, id:"item-image-upload" %>
+<div class="main">
   
+  <div class="room-new-main">
+    <div class="room-new-title">
+      新しいルームを追加</div>
+
+      <p>このページについては現在開発中です。</p>
+
+      <div class="room-new-form">
+        <%#= form_with model: @room, url: rooms_path, local: true do |form| %>
 
 
-    <%= form.label :name %>
-    <%= form.text_field :name, id: "name", required: true %>
-  </div>
+          <div>
+            <%#= form.file_field :image, id:"item-image-upload" %>
+          </div>
+          <div> 
+            <%#= form.label :name %>
+            <%#= form.text_field :name, id: "name", required: true %>
+          </div>
 
-  <div>
-    <%= form.label :description %>
-    <%= form.text_field :description, id: "description", required: true %>
-  </div>
+          <div>
+            <%#= form.label :description %>
+            <%#= form.text_field :description, id: "description", required: true %>
+          </div>
 
-  <div>
-    <%= form.submit "Create Room" %>
-  </div>
-<% end %>
+          <div>
+            <%#= form.submit "Create Room" %>
+          </div>
+        <%# end %>
+    </div>
+ </div>
+</div>
+
+<%= render "shared/footer" %>
