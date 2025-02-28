@@ -9,14 +9,14 @@
     <div class="room-list">
 
       
-      <%# <div class="room-item">
+       <div class="room-item">
        
         <%= link_to (user_signed_in? ? new_room_path : user_session_path), class: 'room-register-btn' do %>
-          <%# <span class='room-name room-register-btn-text'>
+           <span class='room-name room-register-btn-text'>
             新しいルームを作成
-          </span> %>
-        <%# end %>
-       <%# </div>  %>
+          </span>
+        <% end %>
+        </div> 
          
 
       <% @rooms.each_with_index do |room, index| %>
