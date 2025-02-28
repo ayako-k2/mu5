@@ -8,7 +8,9 @@
 
     <div class="room-list">
 
-      
+<% 
+=begin
+%>     
        <div class="room-item">
        
         <%= link_to (user_signed_in? ? new_room_path : user_session_path), class: 'room-register-btn' do %>
@@ -17,7 +19,9 @@
           </span>
         <% end %>
         </div> 
-         
+<% 
+=end
+%>   
 
       <% @rooms.each_with_index do |room, index| %>
         <div class="room-item">
