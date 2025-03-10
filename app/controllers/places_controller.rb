@@ -9,10 +9,8 @@ class PlacesController < ApplicationController
 
   def new 
     @place = Place.new
-    @places = Place.all.order("created_at DESC")
-    
+    @places = Place.all.order("created_at DESC") 
   end
-
 
 
  def create
@@ -52,6 +50,10 @@ class PlacesController < ApplicationController
     render :index
   end
 
+  def comments_count
+    @place = @room.places.find(params[:id])
+    render json: { count:@place.comments.count}
+  end
   
   private
 

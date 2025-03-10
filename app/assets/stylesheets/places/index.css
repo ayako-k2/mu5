@@ -166,6 +166,11 @@
   color: #fff;
 }
 
+.comment-count-link p {
+  color: #333;
+  margin-right: 4px;
+}
+
 .place-website-btn {
   background-color: #EF810F;
   padding: 4px 8px;
@@ -226,6 +231,7 @@
 .place-register-btn:hover .tooltip-text {
   visibility: visible;
 }
+
 
 @media (max-width: 600px) {
 .index-main-upper {
@@ -295,7 +301,6 @@
   display: flex;
   justify-content: flex-end;
 }
-
 
 
 

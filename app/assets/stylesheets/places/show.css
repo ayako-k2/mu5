@@ -39,25 +39,29 @@ color: #1F66BD;
 }
 
 .comment-list {
-  padding-left: 14%;
-  border-top: 1px solid silver;
+  width: 80%;
+  padding-left: 12%;
+  border: 1px solid silver;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 20px;
 }
 
-#comments {
-  
+.login-required-message {
+  margin: 12px 8px; 
 }
+
+
 
 .comment {
+  border-bottom: 1px solid silver;
+  padding: 12px 8px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid silver;
-  padding: 16px 0;
+  margin-right: 8px;
 }
 
-/* .comment-text {
-  white-space: pre-line;
 
-} */
 
 .comment-right {
   display:flex;
@@ -86,8 +90,8 @@ color: #1F66BD;
 }
 
 .comment-form {
-  margin-top: 16px; /* 必要に応じて調整 */
-  /* border-bottom:  1px solid silver; */
+  margin-top: 16px; 
+  border-bottom:  1px solid silver;
 }
 
 #comment-form {

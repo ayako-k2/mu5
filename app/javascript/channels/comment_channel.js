@@ -56,7 +56,7 @@ function initializeCommentForm() {
               </div>
             </div>`;
         const comments = document.getElementById("comments");
-        comments.insertAdjacentHTML('beforeend', html);
+        comments.insertAdjacentHTML('afterbegin', html);
         const commentForm = document.getElementById("comment-form");
         commentForm.reset();
       }
