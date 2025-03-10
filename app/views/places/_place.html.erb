@@ -1,0 +1,66 @@
+<div class= "place-lists">
+  <div class="place-lists-left">
+    <div class="place-prefecture">
+      <%= place.prefecture %>
+    </div>
+  </div>
+
+  <div class="place-lists-right"> 
+    <div class="place-lists-right-upper">
+      <div class="place-lists-right-upper-left">
+        <div class="place-name">
+          <%= link_to place.name, room_place_path(@room, place) %>        
+        </div>
+      </div>  
+      <div class="place-lists-right-upper-right">
+        <div>
+          <% if place.user.present? && place.user.avatar.attached? %>
+            <%= image_tag place.user.avatar.variant(resize_to_fill: [100, 100]), class: "user-avatar mid" %>
+          <% else %>
+            <%= image_tag "default-avatar.png",class: "user-avatar mid" %>
+          <% end %>
+        </div>
+        <div class="place-user-nickname">
+          <p><%= place.user.nickname %></p>
+        </div>
+        <div class="time-show" data-created-at="<%= place.created_at.iso8601 %>">
+          <p class="formatted-time"></p>
+        </div>
+        <div class="place-delete"> 
+          <% if user_signed_in? && current_user.id == place.user_id %>
+             <%= link_to room_place_path(@room, place), data: { turbo_method: :delete, turbo_confirm: '場所を削除しますか？' }, class: "place-destroy" do %>
+               <i class="fa-solid fa-trash"></i>
+             <% end %>
+          <% end %>
+        </div>
+      </div> 
+    </div>  
+      
+    <div class="place-lists-right-bottom"> 
+      <div class="place-lists-right-bottom-left">
+        <div class="place-category">
+          <%= place.category %>
+        </div>
+      </div>
+      <div class="place-lists-right-bottom-right">
+        <div class="comment-count-link">
+         <%= link_to room_place_path(@room, place), class: "comment-link" do %>
+            <p><i class="fa-regular fa-comment"></i>
+            <%= turbo_frame_tag "comment-count-#{place.id}" do %>
+              <%= render "places/comment_count", place: place %>
+            <% end %>
+           </p>
+          <% end %>
+        </div> 
+        <div class="place-website"> 
+          <% if place.website.present?&& place.website != 'N/A' %>
+            <%= link_to 'WEBSITE', place.website, class: 'place-website-btn', target: '_blank' %>
+          <% end %> 
+        </div>
+        <div class="place-url">
+        <%= link_to 'Google Map', place.url, class: 'place-url-btn', target: '_blank' %>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div> 

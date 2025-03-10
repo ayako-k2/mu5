@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         get 'search'
       end
       resources :comments, only: [:create, :destroy]
+      get 'comments_count', on: :member
     end
   end
 

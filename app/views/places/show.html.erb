@@ -1,76 +1,46 @@
 <%= render "shared/header" %>
 <div class= "show-main">
- <div class="back-to-index">
+  <div class="back-to-index">
     <%= link_to room_places_path(@room) do %>
       <i class="fa-solid fa-arrow-left"></i>
     <% end %>
   </div>
-  <div class= "show-place-lists">
-   <div class= "place-list">
-      <div class="place-lists-left">
-        <div class="place-prefecture">
-          <%= @place.prefecture %>
-        </div>
-      </div>
-
-      <div class="place-lists-right">
-        <div class="place-lists-right-upper">
-         <div class="place-lists-right-upper-left">
-          <div class="place-name">
-            <%= @place.name %>
-          </div>
-         </div>
-         <div class="place-lists-right-upper-right">
-          <div>
-            <% if @place.user.present? && @place.user.avatar.attached? %>
-              <%= image_tag @place.user.avatar.variant(resize_to_fill: [100, 100]), class: "user-avatar mid" %>
-            <% else %>
-              <%= image_tag "default-avatar.png",class: "user-avatar mid" %>
-            <% end %>
-          </div>
-          <div class="place-user-nickname">
-                <p><%= @place.user.nickname %></p>
-              </div>
-              <div class="time-show" data-created-at="<%= @place.created_at.iso8601 %>">
-                <p class="formatted-time"></p>
-              </div>
-              <div class="place-delete"> 
-                <% if user_signed_in? && current_user.id == @place.user_id %>
-                  <%= link_to room_place_path(@room, @place), data: { turbo_method: :delete, turbo_confirm: '場所を削除しますか？' }, class: "place-destroy" do %>
-                    <i class="fa-solid fa-trash"></i>
-                  <% end %>
-                <% end %>
-              </div>
-         </div>
-        </div>
-
-        <div class="place-lists-right-bottom">
-          <div class="place-lists-right-bottom-left">
-            <div class="place-category">
-              <%= @place.category %>
-            </div>
-          </div>
-          <div class="place-lists-right-bottom-right">
-            <div class="place-website">
-              <% if @place.website.present? && @place.website != 'N/A' %>
-                <%= link_to 'WEBSITE', @place.website, class: 'place-website-btn', target: '_blank' %>
-              <% end %>
-            </div>
-            <div class="place-url">
-              <%= link_to 'Google Map', @place.url, class: 'place-url-btn', target: '_blank' %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  
+  <%= render partial: "places/place", locals: { place: @place, room: @room } %>
 
     <div class="comment-list">  
+      <div class="comment-form">
+        <% if user_signed_in? %>
+          <div class="comment-form-name">
+            <div>
+              <% if current_user.avatar.attached? %>
+                <%= image_tag current_user.avatar.variant(resize_to_fill: [100, 100]), class: "user-avatar" %>
+              <% else %>
+                <%= image_tag "default-avatar.png",class: "user-avatar" %>
+              <% end %>
+            </div>
+            <p class="logged-in-user-nickname">
+              <%= current_user.nickname %>
+            </p>
+         </div>  
+
+          <%= form_with model: [@room, @place, @comment], id: "comment-form" do |f| %>
+            <%= f.text_area :text , class: "comment-area", id:"comment-textarea", placeholder: "コメントを入力", rows:"1" %>
+            <button type="submit" class="comment-submit">
+              <i class="fa-regular fa-paper-plane"></i>
+            </button>
+          <% end %>
+          <% else %>
+            <p class="login-required-message"><< コメントをするにはログインが必要です >></p>
+        <% end %>
+      </div>
+
       <div id="comments">
-          <% @place.comments.each do |comment| %>
-            <div class="comment">
+        <% @place.comments.order(created_at: :desc).each do |comment| %>
+          <div class="comment">
               <div class="comment-left">
                 <div class= "comment-text">
-                <%= comment.text %>
+                  <%= comment.text %>
                 </div>
               </div>
               <div class="comment-right">
@@ -82,7 +52,7 @@
                     <% end %>
                   </div>
                 <div class="comment-user">
-                <p><%= comment.user.nickname %></p>
+                   <p><%= comment.user.nickname %></p>
                 </div>
                 <div class="comment-timestamp">
                   <div class="time-show" data-created-at="<%= comment.created_at.iso8601 %>">
@@ -93,43 +63,20 @@
                    <% if user_signed_in? && current_user.id == comment.user_id %>
                        <%= link_to room_place_comment_path(@room, @place, comment), data: { turbo_method: :delete, turbo_confirm: 'コメントを削除しますか？' }, class: "comment-destroy" do %>
                        <i class="fa-solid fa-trash"></i>
-                    <% end %>
-                    <% end %>
+                       <% end %>
+                  <% end %>
                     
                 </div>
              
               </div>  
             </div>
-          <% end %>
-      </div>
-      <div class="comment-form">
-        <% if user_signed_in? %>
-         <div class="comment-form-name">
-          <div>
-            <% if current_user.avatar.attached? %>
-              <%= image_tag current_user.avatar.variant(resize_to_fill: [100, 100]), class: "user-avatar" %>
-            <% else %>
-              <%= image_tag "default-avatar.png",class: "user-avatar" %>
-            <% end %>
-        </div>
-          <p class="logged-in-user-nickname">
-             <%= current_user.nickname %>
-          </p>
-        </div>  
-
-          <%= form_with model: [@room, @place, @comment], id: "comment-form" do |f| %>
-            <%= f.text_area :text , class: "comment-area", id:"comment-textarea", placeholder: "コメントを入力", rows:"1" %>
-            <button type="submit" class="comment-submit">
-              <i class="fa-regular fa-paper-plane"></i>
-            </button>
-
-          <% end %>
         <% end %>
-      </div>
-    </div>  
+          </div>
+      
+      </div>  
 
 
-  </div>
+    </div>
 </div>
 
  <%= render "shared/footer"%>
